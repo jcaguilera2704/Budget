@@ -1,0 +1,4569 @@
+{
+  "app": "Aguilera's Budget",
+  "exportedAt": "2026-07-26T13:45:25.619Z",
+  "transactions": [
+    {
+      "id": "imp-0001",
+      "date": "2026-01-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0002",
+      "date": "2026-01-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0003",
+      "date": "2026-01-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0004",
+      "date": "2026-01-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0005",
+      "date": "2026-01-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 161350,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0006",
+      "date": "2026-01-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 6500,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0007",
+      "date": "2026-01-01",
+      "category": "food",
+      "description": "Jantar Frisby",
+      "amount": 79450,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0008",
+      "date": "2026-01-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0009",
+      "date": "2026-01-01",
+      "category": "family_outing",
+      "description": "Percimon",
+      "amount": 165400,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0010",
+      "date": "2026-01-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0011",
+      "date": "2026-01-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0012",
+      "date": "2026-01-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0013",
+      "date": "2026-01-02",
+      "category": "food",
+      "description": "Almoço Home Burguer",
+      "amount": 149600,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0014",
+      "date": "2026-01-02",
+      "category": "entertainment",
+      "description": "Cerveja",
+      "amount": 20000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0015",
+      "date": "2026-01-02",
+      "category": "kids",
+      "description": "Farmatodo",
+      "amount": 34290,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0016",
+      "date": "2026-01-02",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 128039,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0017",
+      "date": "2026-01-02",
+      "category": "food",
+      "description": "Jantar Brasaos Slice",
+      "amount": 35500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0018",
+      "date": "2026-01-03",
+      "category": "entertainment",
+      "description": "Patrimonio",
+      "amount": 75900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0019",
+      "date": "2026-01-03",
+      "category": "other",
+      "description": "Presente Daniela",
+      "amount": 100000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0020",
+      "date": "2026-01-04",
+      "category": "food",
+      "description": "Almoço",
+      "amount": 37000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0021",
+      "date": "2026-01-04",
+      "category": "other",
+      "description": "Arbif",
+      "amount": 65000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0022",
+      "date": "2026-01-04",
+      "category": "food",
+      "description": "Café",
+      "amount": 46000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0023",
+      "date": "2026-01-04",
+      "category": "other",
+      "description": "Jogos Theo",
+      "amount": 42500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0024",
+      "date": "2026-01-04",
+      "category": "other",
+      "description": "Rustika",
+      "amount": 123500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0025",
+      "date": "2026-01-05",
+      "category": "entertainment",
+      "description": "Club La Taberna",
+      "amount": 49500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0026",
+      "date": "2026-01-05",
+      "category": "food",
+      "description": "Jantar club",
+      "amount": 110500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0027",
+      "date": "2026-01-06",
+      "category": "entertainment",
+      "description": "Aguardiente",
+      "amount": 160000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0028",
+      "date": "2026-01-06",
+      "category": "entertainment",
+      "description": "Concerto Alejandro Gonz",
+      "amount": 320000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0029",
+      "date": "2026-01-06",
+      "category": "food",
+      "description": "Jantar Emilia",
+      "amount": 150900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0030",
+      "date": "2026-01-06",
+      "category": "kids",
+      "description": "Jardim",
+      "amount": 505000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0031",
+      "date": "2026-01-07",
+      "category": "personal_care",
+      "description": "Aulas de ingles",
+      "amount": 140000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0032",
+      "date": "2026-01-09",
+      "category": "entertainment",
+      "description": "Aguardiente club",
+      "amount": 81000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0033",
+      "date": "2026-01-09",
+      "category": "food",
+      "description": "Cachorro quente",
+      "amount": 15000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0034",
+      "date": "2026-01-09",
+      "category": "food",
+      "description": "Jantar Chuzos",
+      "amount": 61000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0035",
+      "date": "2026-01-09",
+      "category": "transport",
+      "description": "Pedagio",
+      "amount": 80000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0036",
+      "date": "2026-01-10",
+      "category": "entertainment",
+      "description": "Aguardiente",
+      "amount": 38000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0037",
+      "date": "2026-01-10",
+      "category": "food",
+      "description": "Almoço carne",
+      "amount": 50000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0038",
+      "date": "2026-01-10",
+      "category": "food",
+      "description": "Opla",
+      "amount": 90200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0039",
+      "date": "2026-01-10",
+      "category": "food",
+      "description": "Oxxo",
+      "amount": 22400,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0040",
+      "date": "2026-01-12",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 50150,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0041",
+      "date": "2026-01-12",
+      "category": "food",
+      "description": "Café de manhã Sofi",
+      "amount": 122100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0042",
+      "date": "2026-01-14",
+      "category": "transport",
+      "description": "Estacionamento",
+      "amount": 2000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0043",
+      "date": "2026-01-14",
+      "category": "food",
+      "description": "Exito",
+      "amount": 238000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0044",
+      "date": "2026-01-14",
+      "category": "food",
+      "description": "Opla",
+      "amount": 26200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0045",
+      "date": "2026-01-16",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 139678,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0046",
+      "date": "2026-01-16",
+      "category": "personal_care",
+      "description": "Savvy",
+      "amount": 159800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0047",
+      "date": "2026-01-17",
+      "category": "food",
+      "description": "Salgadinho Juan Valdez",
+      "amount": 14900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0048",
+      "date": "2026-01-17",
+      "category": "personal_care",
+      "description": "True",
+      "amount": 310000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0049",
+      "date": "2026-01-18",
+      "category": "food",
+      "description": "Almoço Fundadores",
+      "amount": 169970,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0050",
+      "date": "2026-01-18",
+      "category": "kids",
+      "description": "GEF MP",
+      "amount": 152980,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0051",
+      "date": "2026-01-18",
+      "category": "entertainment",
+      "description": "Ingresso OC",
+      "amount": 381000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0052",
+      "date": "2026-01-18",
+      "category": "kids",
+      "description": "MP",
+      "amount": 60800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0053",
+      "date": "2026-01-18",
+      "category": "personal_care",
+      "description": "Medipiel",
+      "amount": 106960,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0054",
+      "date": "2026-01-19",
+      "category": "kids",
+      "description": "Celular MM",
+      "amount": 50000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0055",
+      "date": "2026-01-20",
+      "category": "personal_care",
+      "description": "Crea Patrimonio",
+      "amount": 200000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0056",
+      "date": "2026-01-20",
+      "category": "food",
+      "description": "Jantar Burguer Hill",
+      "amount": 177250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0057",
+      "date": "2026-01-21",
+      "category": "transport",
+      "description": "Onibus",
+      "amount": 3250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0058",
+      "date": "2026-01-22",
+      "category": "food",
+      "description": "Fralda",
+      "amount": 48900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0059",
+      "date": "2026-01-22",
+      "category": "food",
+      "description": "Mercado Mercaldas",
+      "amount": 208050,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0060",
+      "date": "2026-01-22",
+      "category": "transport",
+      "description": "Onibus",
+      "amount": 3250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0061",
+      "date": "2026-01-25",
+      "category": "food",
+      "description": "Almoço Campestre",
+      "amount": 77850,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0062",
+      "date": "2026-01-25",
+      "category": "transport",
+      "description": "Pedagio",
+      "amount": 90000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0063",
+      "date": "2026-01-26",
+      "category": "kids",
+      "description": "Pole MM dic e ene",
+      "amount": 410000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0064",
+      "date": "2026-01-27",
+      "category": "food",
+      "description": "Jantar La Plaza",
+      "amount": 83000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0065",
+      "date": "2026-01-28",
+      "category": "personal_care",
+      "description": "1.0 academia",
+      "amount": 250000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0066",
+      "date": "2026-01-28",
+      "category": "kids",
+      "description": "Sobrancelhas MP",
+      "amount": 30000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0067",
+      "date": "2026-01-30",
+      "category": "utilities",
+      "description": "Administracion",
+      "amount": 223500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0068",
+      "date": "2026-01-30",
+      "category": "personal_care",
+      "description": "Farmatodo",
+      "amount": 47505,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0069",
+      "date": "2026-01-30",
+      "category": "food",
+      "description": "Jantar club",
+      "amount": 104000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0070",
+      "date": "2026-01-31",
+      "category": "personal_care",
+      "description": "Amazon",
+      "amount": 92500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0071",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 223500,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0072",
+      "date": "2026-02-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0073",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0074",
+      "date": "2026-02-01",
+      "category": "food",
+      "description": "Almoço Teckel",
+      "amount": 40900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0075",
+      "date": "2026-02-01",
+      "category": "personal_care",
+      "description": "Amazon",
+      "amount": 740000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0076",
+      "date": "2026-02-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0077",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0078",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0079",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0080",
+      "date": "2026-02-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 6500,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0081",
+      "date": "2026-02-01",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 109728,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0082",
+      "date": "2026-02-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0083",
+      "date": "2026-02-01",
+      "category": "personal_care",
+      "description": "Protetor solar",
+      "amount": 63938,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0084",
+      "date": "2026-02-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0085",
+      "date": "2026-02-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0086",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0087",
+      "date": "2026-02-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0088",
+      "date": "2026-02-02",
+      "category": "personal_care",
+      "description": "Humidificador",
+      "amount": 92500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0089",
+      "date": "2026-02-03",
+      "category": "personal_care",
+      "description": "Coffe grinder",
+      "amount": 148000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0090",
+      "date": "2026-02-04",
+      "category": "entertainment",
+      "description": "Fito Paez",
+      "amount": 269610,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0091",
+      "date": "2026-02-04",
+      "category": "kids",
+      "description": "Pole MP janeiro",
+      "amount": 410000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0092",
+      "date": "2026-02-04",
+      "category": "food",
+      "description": "Rappi",
+      "amount": 41350,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0093",
+      "date": "2026-02-05",
+      "category": "food",
+      "description": "Jantar BurguerHill",
+      "amount": 57450,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0094",
+      "date": "2026-02-06",
+      "category": "food",
+      "description": "MacPollo",
+      "amount": 50050,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0095",
+      "date": "2026-02-06",
+      "category": "food",
+      "description": "Rappi",
+      "amount": 27800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0096",
+      "date": "2026-02-07",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 56500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0097",
+      "date": "2026-02-07",
+      "category": "food",
+      "description": "Jantar Don Mateo",
+      "amount": 77550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0098",
+      "date": "2026-02-07",
+      "category": "transport",
+      "description": "Pedagio",
+      "amount": 34000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0099",
+      "date": "2026-02-07",
+      "category": "entertainment",
+      "description": "Presente Salvador",
+      "amount": 45875,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0100",
+      "date": "2026-02-08",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 85750,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0101",
+      "date": "2026-02-08",
+      "category": "food",
+      "description": "Mercado",
+      "amount": 100040,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0102",
+      "date": "2026-02-09",
+      "category": "food",
+      "description": "Almoço Healthy Bite",
+      "amount": 78300,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0103",
+      "date": "2026-02-09",
+      "category": "entertainment",
+      "description": "Temu anniversario Theo",
+      "amount": 899745,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0104",
+      "date": "2026-02-10",
+      "category": "entertainment",
+      "description": "Camisa Talo",
+      "amount": 48000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0105",
+      "date": "2026-02-11",
+      "category": "food",
+      "description": "Jantar hamburguesa",
+      "amount": 57720,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0106",
+      "date": "2026-02-11",
+      "category": "entertainment",
+      "description": "Pola",
+      "amount": 177500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0107",
+      "date": "2026-02-11",
+      "category": "transport",
+      "description": "Taxi",
+      "amount": 10000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0108",
+      "date": "2026-02-12",
+      "category": "food",
+      "description": "Almoço Porthos",
+      "amount": 83350,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0109",
+      "date": "2026-02-12",
+      "category": "entertainment",
+      "description": "Brisa Loca",
+      "amount": 20000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0110",
+      "date": "2026-02-12",
+      "category": "food",
+      "description": "Jantar pizza",
+      "amount": 53400,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0111",
+      "date": "2026-02-12",
+      "category": "entertainment",
+      "description": "Tequila e aguardiente",
+      "amount": 157000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0112",
+      "date": "2026-02-13",
+      "category": "food",
+      "description": "Almoço Mex",
+      "amount": 46670,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0113",
+      "date": "2026-02-13",
+      "category": "entertainment",
+      "description": "Brisa Loca",
+      "amount": 20000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0114",
+      "date": "2026-02-13",
+      "category": "entertainment",
+      "description": "Cerveja Marriot",
+      "amount": 27800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0115",
+      "date": "2026-02-13",
+      "category": "food",
+      "description": "Jantar Viajero",
+      "amount": 57800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0116",
+      "date": "2026-02-13",
+      "category": "entertainment",
+      "description": "Tequila e aguardiente",
+      "amount": 67550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0117",
+      "date": "2026-02-14",
+      "category": "food",
+      "description": "Almoço Viajero",
+      "amount": 56200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0118",
+      "date": "2026-02-14",
+      "category": "other",
+      "description": "Fresas",
+      "amount": 26550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0119",
+      "date": "2026-02-14",
+      "category": "food",
+      "description": "Jantar Viajero",
+      "amount": 61900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0120",
+      "date": "2026-02-14",
+      "category": "transport",
+      "description": "Taxi",
+      "amount": 18500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0121",
+      "date": "2026-02-14",
+      "category": "entertainment",
+      "description": "Tequila e aguardiente",
+      "amount": 245375,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0122",
+      "date": "2026-02-15",
+      "category": "food",
+      "description": "Almoço Ouzo",
+      "amount": 75750,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0123",
+      "date": "2026-02-15",
+      "category": "transport",
+      "description": "Estacionamento",
+      "amount": 70000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0124",
+      "date": "2026-02-15",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 45000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0125",
+      "date": "2026-02-15",
+      "category": "transport",
+      "description": "InDrive",
+      "amount": 10000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0126",
+      "date": "2026-02-15",
+      "category": "food",
+      "description": "Jantar Viajero",
+      "amount": 61900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0127",
+      "date": "2026-02-17",
+      "category": "kids",
+      "description": "Celular MM",
+      "amount": 30583,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0128",
+      "date": "2026-02-17",
+      "category": "food",
+      "description": "OPLA",
+      "amount": 345758,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0129",
+      "date": "2026-02-18",
+      "category": "food",
+      "description": "Mercado Mercaldas",
+      "amount": 548582,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0130",
+      "date": "2026-02-20",
+      "category": "food",
+      "description": "Almoço Healthy Bite",
+      "amount": 89100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0131",
+      "date": "2026-02-20",
+      "category": "food",
+      "description": "Jantar na casa",
+      "amount": 116400,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0132",
+      "date": "2026-02-27",
+      "category": "kids",
+      "description": "SES",
+      "amount": 93300,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0133",
+      "date": "2026-02-27",
+      "category": "kids",
+      "description": "Soro",
+      "amount": 21673,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0134",
+      "date": "2026-02-28",
+      "category": "kids",
+      "description": "Medicamento Theo",
+      "amount": 84350,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0135",
+      "date": "2026-02-28",
+      "category": "personal_care",
+      "description": "WinSports",
+      "amount": 37900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0136",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0137",
+      "date": "2026-03-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0138",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0139",
+      "date": "2026-03-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0140",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0141",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0142",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0143",
+      "date": "2026-03-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 6500,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0144",
+      "date": "2026-03-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0145",
+      "date": "2026-03-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0146",
+      "date": "2026-03-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0147",
+      "date": "2026-03-01",
+      "category": "other",
+      "description": "Santiago Roman",
+      "amount": 500000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0148",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 989300,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0149",
+      "date": "2026-03-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0150",
+      "date": "2026-03-02",
+      "category": "travel",
+      "description": "Hotel Armenia 30%",
+      "amount": 157080,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0151",
+      "date": "2026-03-02",
+      "category": "food",
+      "description": "Jantar Armando",
+      "amount": 50000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0152",
+      "date": "2026-03-02",
+      "category": "entertainment",
+      "description": "Jogo futebol",
+      "amount": 13000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0153",
+      "date": "2026-03-02",
+      "category": "food",
+      "description": "Opla",
+      "amount": 72883,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0154",
+      "date": "2026-03-04",
+      "category": "food",
+      "description": "Carulla",
+      "amount": 38504,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0155",
+      "date": "2026-03-05",
+      "category": "kids",
+      "description": "Exito",
+      "amount": 122475,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0156",
+      "date": "2026-03-05",
+      "category": "food",
+      "description": "Jantar Idilio",
+      "amount": 98000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0157",
+      "date": "2026-03-05",
+      "category": "kids",
+      "description": "Temu",
+      "amount": 33550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0158",
+      "date": "2026-03-05",
+      "category": "kids",
+      "description": "Theo fralda",
+      "amount": 39100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0159",
+      "date": "2026-03-06",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 100361,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0160",
+      "date": "2026-03-06",
+      "category": "kids",
+      "description": "Pole MP e MM fevereiro",
+      "amount": 460000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0161",
+      "date": "2026-03-07",
+      "category": "food",
+      "description": "Almoço",
+      "amount": 37900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0162",
+      "date": "2026-03-07",
+      "category": "kids",
+      "description": "Farmatodo",
+      "amount": 132642,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0163",
+      "date": "2026-03-07",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 69700,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0164",
+      "date": "2026-03-07",
+      "category": "food",
+      "description": "Opla",
+      "amount": 169550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0165",
+      "date": "2026-03-07",
+      "category": "entertainment",
+      "description": "Presente Martina",
+      "amount": 129830,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0166",
+      "date": "2026-03-08",
+      "category": "food",
+      "description": "Almoço Los Geranios",
+      "amount": 115800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0167",
+      "date": "2026-03-08",
+      "category": "food",
+      "description": "Almoço Nomada",
+      "amount": 35000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0168",
+      "date": "2026-03-08",
+      "category": "food",
+      "description": "Café de manha Cheese Cake Sh",
+      "amount": 113377,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0169",
+      "date": "2026-03-08",
+      "category": "food",
+      "description": "Jantar Arepa",
+      "amount": 36140,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0170",
+      "date": "2026-03-08",
+      "category": "entertainment",
+      "description": "Presente Martin",
+      "amount": 178530,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0171",
+      "date": "2026-03-11",
+      "category": "food",
+      "description": "Jantar Vino y Pimienta",
+      "amount": 104000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0172",
+      "date": "2026-03-13",
+      "category": "food",
+      "description": "D1",
+      "amount": 89407,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0173",
+      "date": "2026-03-13",
+      "category": "food",
+      "description": "MacPollo",
+      "amount": 81065,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0174",
+      "date": "2026-03-13",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 366407,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0175",
+      "date": "2026-03-14",
+      "category": "food",
+      "description": "Opla",
+      "amount": 72550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0176",
+      "date": "2026-03-15",
+      "category": "food",
+      "description": "Almoço",
+      "amount": 11700,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0177",
+      "date": "2026-03-18",
+      "category": "personal_care",
+      "description": "Shampoo",
+      "amount": 30000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0178",
+      "date": "2026-03-18",
+      "category": "kids",
+      "description": "Theo roupa",
+      "amount": 278475,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0179",
+      "date": "2026-03-19",
+      "category": "kids",
+      "description": "MM",
+      "amount": 40000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0180",
+      "date": "2026-03-19",
+      "category": "travel",
+      "description": "Pedagios Fly Pass",
+      "amount": 60000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0181",
+      "date": "2026-03-19",
+      "category": "kids",
+      "description": "Theo banho",
+      "amount": 90000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0182",
+      "date": "2026-03-20",
+      "category": "personal_care",
+      "description": "Farmatodo",
+      "amount": 188212,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0183",
+      "date": "2026-03-20",
+      "category": "kids",
+      "description": "Fralda",
+      "amount": 39100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0184",
+      "date": "2026-03-20",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 53162,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0185",
+      "date": "2026-03-21",
+      "category": "food",
+      "description": "Almoço El Eden",
+      "amount": 170000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0186",
+      "date": "2026-03-21",
+      "category": "travel",
+      "description": "Hotel Arrayanes",
+      "amount": 366520,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0187",
+      "date": "2026-03-21",
+      "category": "food",
+      "description": "Jantar hotel",
+      "amount": 114500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0188",
+      "date": "2026-03-21",
+      "category": "personal_care",
+      "description": "Medicamento",
+      "amount": 45000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0189",
+      "date": "2026-03-22",
+      "category": "food",
+      "description": "Almoço frango e carne",
+      "amount": 133000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0190",
+      "date": "2026-03-22",
+      "category": "transport",
+      "description": "Estacionamento",
+      "amount": 12000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0191",
+      "date": "2026-03-22",
+      "category": "food",
+      "description": "Hidrataçao",
+      "amount": 100000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0192",
+      "date": "2026-03-22",
+      "category": "food",
+      "description": "Jantar Quimbaya",
+      "amount": 88900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0193",
+      "date": "2026-03-23",
+      "category": "food",
+      "description": "Almoço Boludo",
+      "amount": 124450,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0194",
+      "date": "2026-03-23",
+      "category": "food",
+      "description": "Jantar Il Forno",
+      "amount": 27500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0195",
+      "date": "2026-03-24",
+      "category": "food",
+      "description": "OPLA",
+      "amount": 113800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0196",
+      "date": "2026-03-24",
+      "category": "food",
+      "description": "Salgadinho",
+      "amount": 7000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0197",
+      "date": "2026-03-28",
+      "category": "travel",
+      "description": "Pedagios Fly Pass",
+      "amount": 80000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0198",
+      "date": "2026-03-28",
+      "category": "entertainment",
+      "description": "WinSports",
+      "amount": 37900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0199",
+      "date": "2026-03-29",
+      "category": "food",
+      "description": "Almoço Geranios",
+      "amount": 90000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0200",
+      "date": "2026-03-29",
+      "category": "kids",
+      "description": "Cruz Verde",
+      "amount": 7000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0201",
+      "date": "2026-03-29",
+      "category": "food",
+      "description": "Juan Valdez",
+      "amount": 55900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0202",
+      "date": "2026-03-30",
+      "category": "food",
+      "description": "Brownies (4)",
+      "amount": 20000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0203",
+      "date": "2026-03-31",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 162556,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0204",
+      "date": "2026-03-31",
+      "category": "car",
+      "description": "Imposto",
+      "amount": 4091000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0205",
+      "date": "2026-03-31",
+      "category": "kids",
+      "description": "Theo medicamento",
+      "amount": 171333,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0206",
+      "date": "2026-03-31",
+      "category": "food",
+      "description": "pão",
+      "amount": 26000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0207",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0208",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 136490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0209",
+      "date": "2026-04-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0210",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 202989,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0211",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 75899,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0212",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 243553,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0213",
+      "date": "2026-04-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0214",
+      "date": "2026-04-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0215",
+      "date": "2026-04-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0216",
+      "date": "2026-04-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0217",
+      "date": "2026-04-01",
+      "category": "other",
+      "description": "Santiago Roman",
+      "amount": 100000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0218",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1130700,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0219",
+      "date": "2026-04-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0220",
+      "date": "2026-04-03",
+      "category": "food",
+      "description": "Almoço finca Amelia",
+      "amount": 180000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0221",
+      "date": "2026-04-07",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 78125,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0222",
+      "date": "2026-04-08",
+      "category": "entertainment",
+      "description": "FIFA26",
+      "amount": 27000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0223",
+      "date": "2026-04-08",
+      "category": "food",
+      "description": "Jantar Q' Rico",
+      "amount": 60000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0224",
+      "date": "2026-04-09",
+      "category": "food",
+      "description": "Almoço Montolivo",
+      "amount": 99000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0225",
+      "date": "2026-04-09",
+      "category": "other",
+      "description": "Aulas de ingles",
+      "amount": 350000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0226",
+      "date": "2026-04-09",
+      "category": "food",
+      "description": "Opla",
+      "amount": 174020,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0227",
+      "date": "2026-04-10",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 56500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0228",
+      "date": "2026-04-10",
+      "category": "personal_care",
+      "description": "Cita pediatra",
+      "amount": 55000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0229",
+      "date": "2026-04-10",
+      "category": "personal_care",
+      "description": "Medicamentos",
+      "amount": 46800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0230",
+      "date": "2026-04-10",
+      "category": "food",
+      "description": "Rappi Turbo",
+      "amount": 22000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0231",
+      "date": "2026-04-11",
+      "category": "entertainment",
+      "description": "Jogo futebol",
+      "amount": 8000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0232",
+      "date": "2026-04-12",
+      "category": "entertainment",
+      "description": "Café",
+      "amount": 120000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0233",
+      "date": "2026-04-12",
+      "category": "other",
+      "description": "Eleven Labs",
+      "amount": 21066,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0234",
+      "date": "2026-04-12",
+      "category": "food",
+      "description": "Jantar AVA",
+      "amount": 69500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0235",
+      "date": "2026-04-17",
+      "category": "kids",
+      "description": "Dollar City",
+      "amount": 118000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0236",
+      "date": "2026-04-17",
+      "category": "food",
+      "description": "Jantar BurguerHill",
+      "amount": 96100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0237",
+      "date": "2026-04-17",
+      "category": "food",
+      "description": "Opla",
+      "amount": 47700,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0238",
+      "date": "2026-04-19",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 152199,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0239",
+      "date": "2026-04-19",
+      "category": "food",
+      "description": "Jantar Local",
+      "amount": 44500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0240",
+      "date": "2026-04-19",
+      "category": "transport",
+      "description": "Pedagio",
+      "amount": 98300,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0241",
+      "date": "2026-04-19",
+      "category": "kids",
+      "description": "Theo roupa",
+      "amount": 341800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0242",
+      "date": "2026-04-20",
+      "category": "personal_care",
+      "description": "Black Bison",
+      "amount": 262200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0243",
+      "date": "2026-04-21",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 682642,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0244",
+      "date": "2026-04-22",
+      "category": "food",
+      "description": "Café de manhã",
+      "amount": 9000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0245",
+      "date": "2026-04-22",
+      "category": "personal_care",
+      "description": "Delantal",
+      "amount": 41400,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0246",
+      "date": "2026-04-22",
+      "category": "personal_care",
+      "description": "Examen sangre",
+      "amount": 263000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0247",
+      "date": "2026-04-22",
+      "category": "food",
+      "description": "Mercado Mercaldas",
+      "amount": 138140,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0248",
+      "date": "2026-04-23",
+      "category": "food",
+      "description": "Jantar Burguer Hill",
+      "amount": 31500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0249",
+      "date": "2026-04-24",
+      "category": "food",
+      "description": "Jantar Shiraka",
+      "amount": 27500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0250",
+      "date": "2026-04-26",
+      "category": "food",
+      "description": "Almoço Takashi",
+      "amount": 90750,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0251",
+      "date": "2026-04-26",
+      "category": "kids",
+      "description": "Buso MM",
+      "amount": 135000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0252",
+      "date": "2026-04-26",
+      "category": "food",
+      "description": "Suzzete",
+      "amount": 56500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0253",
+      "date": "2026-04-27",
+      "category": "personal_care",
+      "description": "Fisioterapia",
+      "amount": 55000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0254",
+      "date": "2026-04-27",
+      "category": "transport",
+      "description": "Onibus",
+      "amount": 3250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0255",
+      "date": "2026-04-29",
+      "category": "food",
+      "description": "Jantar Burguer Parilla",
+      "amount": 77500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0256",
+      "date": "2026-04-30",
+      "category": "personal_care",
+      "description": "Medicamento Theo",
+      "amount": 156850,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0257",
+      "date": "2026-04-30",
+      "category": "other",
+      "description": "Seguro do PC MM",
+      "amount": 66657,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0258",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 706750,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0259",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0260",
+      "date": "2026-05-01",
+      "category": "food",
+      "description": "Almoço Frisby",
+      "amount": 45000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0261",
+      "date": "2026-05-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0262",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0263",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0264",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 135478,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0265",
+      "date": "2026-05-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0266",
+      "date": "2026-05-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0267",
+      "date": "2026-05-01",
+      "category": "kids",
+      "description": "Poledance",
+      "amount": 240000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0268",
+      "date": "2026-05-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0269",
+      "date": "2026-05-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0270",
+      "date": "2026-05-01",
+      "category": "other",
+      "description": "Santiago Roman",
+      "amount": 500000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0271",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0272",
+      "date": "2026-05-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 84538,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0273",
+      "date": "2026-05-02",
+      "category": "personal_care",
+      "description": "Theo medicamento",
+      "amount": 18000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0274",
+      "date": "2026-05-02",
+      "category": "other",
+      "description": "Universidade",
+      "amount": 6222000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0275",
+      "date": "2026-05-03",
+      "category": "food",
+      "description": "Almoço La Patateria",
+      "amount": 72712,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0276",
+      "date": "2026-05-03",
+      "category": "food",
+      "description": "Café",
+      "amount": 45000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0277",
+      "date": "2026-05-03",
+      "category": "entertainment",
+      "description": "Cinepolis",
+      "amount": 45600,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0278",
+      "date": "2026-05-03",
+      "category": "food",
+      "description": "Opla",
+      "amount": 152544,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0279",
+      "date": "2026-05-04",
+      "category": "transport",
+      "description": "SOAT",
+      "amount": 946600,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0280",
+      "date": "2026-05-04",
+      "category": "personal_care",
+      "description": "Vitamina D",
+      "amount": 80500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0281",
+      "date": "2026-05-05",
+      "category": "travel",
+      "description": "Hotel Casablanca",
+      "amount": 926100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0282",
+      "date": "2026-05-07",
+      "category": "entertainment",
+      "description": "Ingresso OC",
+      "amount": 966000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0283",
+      "date": "2026-05-07",
+      "category": "other",
+      "description": "Presente dia da mãe",
+      "amount": 1230000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0284",
+      "date": "2026-05-08",
+      "category": "other",
+      "description": "Rappi",
+      "amount": 18000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0285",
+      "date": "2026-05-09",
+      "category": "other",
+      "description": "Presente",
+      "amount": 73900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0286",
+      "date": "2026-05-10",
+      "category": "food",
+      "description": "Almoço dia da mãe",
+      "amount": 340000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0287",
+      "date": "2026-05-10",
+      "category": "kids",
+      "description": "Theo aniversario",
+      "amount": 91673,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0288",
+      "date": "2026-05-13",
+      "category": "food",
+      "description": "Jantar Club",
+      "amount": 70000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0289",
+      "date": "2026-05-14",
+      "category": "food",
+      "description": "Almoço na casa",
+      "amount": 75404,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0290",
+      "date": "2026-05-14",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 83242,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0291",
+      "date": "2026-05-14",
+      "category": "food",
+      "description": "Sentu",
+      "amount": 55850,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0292",
+      "date": "2026-05-14",
+      "category": "personal_care",
+      "description": "Theo pediatra",
+      "amount": 90000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0293",
+      "date": "2026-05-15",
+      "category": "food",
+      "description": "Café",
+      "amount": 17000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0294",
+      "date": "2026-05-15",
+      "category": "food",
+      "description": "Frango",
+      "amount": 69811,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0295",
+      "date": "2026-05-15",
+      "category": "food",
+      "description": "Jantar Sushi El Conversadero",
+      "amount": 85000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0296",
+      "date": "2026-05-15",
+      "category": "food",
+      "description": "Opla",
+      "amount": 163695,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0297",
+      "date": "2026-05-16",
+      "category": "food",
+      "description": "Café Quindio",
+      "amount": 22000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0298",
+      "date": "2026-05-16",
+      "category": "other",
+      "description": "Decorceramica",
+      "amount": 4691062,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0299",
+      "date": "2026-05-16",
+      "category": "kids",
+      "description": "Pratos Theo",
+      "amount": 28500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0300",
+      "date": "2026-05-16",
+      "category": "other",
+      "description": "Presente Toña",
+      "amount": 119950,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0301",
+      "date": "2026-05-16",
+      "category": "personal_care",
+      "description": "Protetor solar",
+      "amount": 70550,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0302",
+      "date": "2026-05-17",
+      "category": "food",
+      "description": "Café",
+      "amount": 24000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0303",
+      "date": "2026-05-17",
+      "category": "other",
+      "description": "Dollar City",
+      "amount": 33000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0304",
+      "date": "2026-05-17",
+      "category": "food",
+      "description": "Frango Mario",
+      "amount": 41200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0305",
+      "date": "2026-05-17",
+      "category": "food",
+      "description": "Jantar Brasaos Slice",
+      "amount": 34750,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0306",
+      "date": "2026-05-17",
+      "category": "food",
+      "description": "Mercado",
+      "amount": 454582,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0307",
+      "date": "2026-05-18",
+      "category": "other",
+      "description": "Notion",
+      "amount": 45561,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0308",
+      "date": "2026-05-21",
+      "category": "food",
+      "description": "Jantar Burguer Hill",
+      "amount": 55200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0309",
+      "date": "2026-05-26",
+      "category": "food",
+      "description": "Mercado tienda",
+      "amount": 180950,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0310",
+      "date": "2026-05-27",
+      "category": "food",
+      "description": "Almoço feijao",
+      "amount": 86760,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0311",
+      "date": "2026-05-28",
+      "category": "food",
+      "description": "Almoço Kokoriko",
+      "amount": 27500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0312",
+      "date": "2026-05-28",
+      "category": "personal_care",
+      "description": "Theo fralda",
+      "amount": 79000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0313",
+      "date": "2026-05-29",
+      "category": "food",
+      "description": "Almoço Healthy Bite",
+      "amount": 46000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0314",
+      "date": "2026-05-29",
+      "category": "food",
+      "description": "Jantar Emilia",
+      "amount": 79000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0315",
+      "date": "2026-05-30",
+      "category": "food",
+      "description": "Mercado",
+      "amount": 45100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0316",
+      "date": "2026-05-30",
+      "category": "food",
+      "description": "Opla",
+      "amount": 51899,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0317",
+      "date": "2026-05-31",
+      "category": "food",
+      "description": "Café de manhã La Suiza",
+      "amount": 143430,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0318",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0319",
+      "date": "2026-06-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0320",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0321",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0322",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 187958,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0323",
+      "date": "2026-06-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0324",
+      "date": "2026-06-01",
+      "category": "personal_care",
+      "description": "MM Intersemestral",
+      "amount": 1972425,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0325",
+      "date": "2026-06-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0326",
+      "date": "2026-06-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 200000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0327",
+      "date": "2026-06-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0328",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 529600,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0329",
+      "date": "2026-06-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0330",
+      "date": "2026-06-02",
+      "category": "other",
+      "description": "Air Fryer",
+      "amount": 224950,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0331",
+      "date": "2026-06-02",
+      "category": "food",
+      "description": "Jantar Sentu",
+      "amount": 73650,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0332",
+      "date": "2026-06-04",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 35900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0333",
+      "date": "2026-06-04",
+      "category": "family_outing",
+      "description": "Crazy Town",
+      "amount": 15000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0334",
+      "date": "2026-06-04",
+      "category": "transport",
+      "description": "Gasolina",
+      "amount": 64503,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0335",
+      "date": "2026-06-04",
+      "category": "personal_care",
+      "description": "Theo fralda",
+      "amount": 79000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0336",
+      "date": "2026-06-05",
+      "category": "other",
+      "description": "Aula de ingles",
+      "amount": 280000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0337",
+      "date": "2026-06-05",
+      "category": "food",
+      "description": "Mercado",
+      "amount": 51527,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0338",
+      "date": "2026-06-05",
+      "category": "personal_care",
+      "description": "Seguro Theo e Lorena",
+      "amount": 5694203,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0339",
+      "date": "2026-06-06",
+      "category": "food",
+      "description": "Almoço Carne Llanera",
+      "amount": 61200,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0340",
+      "date": "2026-06-06",
+      "category": "personal_care",
+      "description": "Competencia",
+      "amount": 70000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0341",
+      "date": "2026-06-07",
+      "category": "personal_care",
+      "description": "Dolex meninos",
+      "amount": 22800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0342",
+      "date": "2026-06-08",
+      "category": "food",
+      "description": "Jantar Local",
+      "amount": 48500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0343",
+      "date": "2026-06-13",
+      "category": "food",
+      "description": "Almoço Asado Motor",
+      "amount": 74250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0344",
+      "date": "2026-06-13",
+      "category": "personal_care",
+      "description": "Entrenamiento",
+      "amount": 15000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0345",
+      "date": "2026-06-13",
+      "category": "food",
+      "description": "Opla",
+      "amount": 110150,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0346",
+      "date": "2026-06-14",
+      "category": "food",
+      "description": "Expoferias",
+      "amount": 123000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0347",
+      "date": "2026-06-14",
+      "category": "personal_care",
+      "description": "Farmatodo",
+      "amount": 146575,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0348",
+      "date": "2026-06-15",
+      "category": "food",
+      "description": "Mercado",
+      "amount": 375214,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0349",
+      "date": "2026-06-16",
+      "category": "other",
+      "description": "Sofá",
+      "amount": 100000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0350",
+      "date": "2026-06-16",
+      "category": "other",
+      "description": "Tapete",
+      "amount": 100000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0351",
+      "date": "2026-06-17",
+      "category": "other",
+      "description": "Notion",
+      "amount": 20562,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0352",
+      "date": "2026-06-17",
+      "category": "kids",
+      "description": "Universidade MM",
+      "amount": 4564845,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0353",
+      "date": "2026-06-19",
+      "category": "car",
+      "description": "Mant. Corolla 10.000km",
+      "amount": 575960,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0354",
+      "date": "2026-06-19",
+      "category": "car",
+      "description": "Seguro Todo Riesgo",
+      "amount": 2839658,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0355",
+      "date": "2026-06-21",
+      "category": "food",
+      "description": "Café de manhã",
+      "amount": 169500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0356",
+      "date": "2026-06-22",
+      "category": "personal_care",
+      "description": "Academia",
+      "amount": 240000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0357",
+      "date": "2026-06-23",
+      "category": "food",
+      "description": "Jantar Burguer Hill",
+      "amount": 48500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0358",
+      "date": "2026-06-24",
+      "category": "car",
+      "description": "Bici",
+      "amount": 150000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0359",
+      "date": "2026-06-24",
+      "category": "food",
+      "description": "Café de manhã",
+      "amount": 28750,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0360",
+      "date": "2026-06-25",
+      "category": "food",
+      "description": "Opla",
+      "amount": 135958,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0361",
+      "date": "2026-06-26",
+      "category": "food",
+      "description": "Jantar Lobo Cantina",
+      "amount": 99038,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0362",
+      "date": "2026-06-26",
+      "category": "other",
+      "description": "Maria",
+      "amount": 150000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0363",
+      "date": "2026-06-27",
+      "category": "entertainment",
+      "description": "2150 Club",
+      "amount": 95800,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0364",
+      "date": "2026-06-27",
+      "category": "food",
+      "description": "Jantar 2150",
+      "amount": 20000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0365",
+      "date": "2026-06-27",
+      "category": "food",
+      "description": "Jantar Club",
+      "amount": 50000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0366",
+      "date": "2026-06-28",
+      "category": "food",
+      "description": "Almoço Costillería",
+      "amount": 107950,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0367",
+      "date": "2026-06-28",
+      "category": "food",
+      "description": "Theo salgadinho",
+      "amount": 47000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0368",
+      "date": "2026-06-29",
+      "category": "food",
+      "description": "Almoço MP",
+      "amount": 22000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0369",
+      "date": "2026-06-29",
+      "category": "kids",
+      "description": "Panhito Farmatodo",
+      "amount": 45250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0370",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0371",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0372",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0373",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0374",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0375",
+      "date": "2026-07-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0376",
+      "date": "2026-07-01",
+      "category": "food",
+      "description": "Macpollo",
+      "amount": 140279,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0377",
+      "date": "2026-07-01",
+      "category": "food",
+      "description": "Mercaplaza",
+      "amount": 94525,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0378",
+      "date": "2026-07-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 29900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0379",
+      "date": "2026-07-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0380",
+      "date": "2026-07-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0381",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 529600,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0382",
+      "date": "2026-07-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 89988,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0383",
+      "date": "2026-07-02",
+      "category": "food",
+      "description": "Sauca",
+      "amount": 43000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0384",
+      "date": "2026-07-02",
+      "category": "food",
+      "description": "Tienda",
+      "amount": 177475,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0385",
+      "date": "2026-07-03",
+      "category": "food",
+      "description": "Club jantar",
+      "amount": 81000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0386",
+      "date": "2026-07-03",
+      "category": "food",
+      "description": "Healthy Bite",
+      "amount": 20600,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0387",
+      "date": "2026-07-04",
+      "category": "personal_care",
+      "description": "Amazon Theo",
+      "amount": 264000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0388",
+      "date": "2026-07-05",
+      "category": "food",
+      "description": "Almoço La Roti",
+      "amount": 3000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0389",
+      "date": "2026-07-05",
+      "category": "personal_care",
+      "description": "Farmatodo",
+      "amount": 457427,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0390",
+      "date": "2026-07-05",
+      "category": "family_outing",
+      "description": "Florida jogos",
+      "amount": 35000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0391",
+      "date": "2026-07-05",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 269935,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0392",
+      "date": "2026-07-06",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 18088,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0393",
+      "date": "2026-07-06",
+      "category": "food",
+      "description": "Almoço Spago",
+      "amount": 46900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0394",
+      "date": "2026-07-09",
+      "category": "personal_care",
+      "description": "Jardim Theo junho",
+      "amount": 275000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0395",
+      "date": "2026-07-09",
+      "category": "other",
+      "description": "Seguros del estado",
+      "amount": 87126,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0396",
+      "date": "2026-07-10",
+      "category": "other",
+      "description": "Aulas de ingles",
+      "amount": 280000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0397",
+      "date": "2026-07-10",
+      "category": "entertainment",
+      "description": "Paseio",
+      "amount": 359100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0398",
+      "date": "2026-07-11",
+      "category": "food",
+      "description": "Almoço Oryza",
+      "amount": 78000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0399",
+      "date": "2026-07-11",
+      "category": "entertainment",
+      "description": "Paseio",
+      "amount": 200000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0400",
+      "date": "2026-07-12",
+      "category": "food",
+      "description": "Jantar BurguerHill",
+      "amount": 102500,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0401",
+      "date": "2026-07-13",
+      "category": "food",
+      "description": "Jantar Mas Campo",
+      "amount": 49100,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0402",
+      "date": "2026-07-14",
+      "category": "other",
+      "description": "Presente prof Theo",
+      "amount": 23000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0403",
+      "date": "2026-07-15",
+      "category": "personal_care",
+      "description": "Crea Patrimonio",
+      "amount": 200000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0404",
+      "date": "2026-07-15",
+      "category": "food",
+      "description": "Opla",
+      "amount": 179475,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0405",
+      "date": "2026-07-17",
+      "category": "food",
+      "description": "Jantar Cortesana",
+      "amount": 85000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0406",
+      "date": "2026-07-17",
+      "category": "food",
+      "description": "Mercaldas",
+      "amount": 93559,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0407",
+      "date": "2026-07-17",
+      "category": "food",
+      "description": "Salgadinho Daniela",
+      "amount": 48456,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0408",
+      "date": "2026-07-19",
+      "category": "other",
+      "description": "ChatGPT",
+      "amount": 21450,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0409",
+      "date": "2026-07-19",
+      "category": "other",
+      "description": "ChatGPT",
+      "amount": 21450,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0410",
+      "date": "2026-07-20",
+      "category": "travel",
+      "description": "Fly Pass",
+      "amount": 4420,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0411",
+      "date": "2026-07-22",
+      "category": "food",
+      "description": "Jantar Juicio",
+      "amount": 74900,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0412",
+      "date": "2026-07-22",
+      "category": "food",
+      "description": "Macpollo",
+      "amount": 66250,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0413",
+      "date": "2026-07-24",
+      "category": "other",
+      "description": "Industria y comercio",
+      "amount": 653000,
+      "type": "expense",
+      "recurring": false
+    },
+    {
+      "id": "imp-0414",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0415",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0416",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0417",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0418",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Celular MM",
+      "amount": 59900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0419",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0420",
+      "date": "2026-08-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0421",
+      "date": "2026-08-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 29900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0422",
+      "date": "2026-08-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0423",
+      "date": "2026-08-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0424",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0425",
+      "date": "2026-08-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0426",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0427",
+      "date": "2026-09-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0428",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0429",
+      "date": "2026-09-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0430",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0431",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0432",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0433",
+      "date": "2026-09-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0434",
+      "date": "2026-09-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0435",
+      "date": "2026-09-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0436",
+      "date": "2026-09-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0437",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0438",
+      "date": "2026-09-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0439",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0440",
+      "date": "2026-10-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0441",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0442",
+      "date": "2026-10-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0443",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0444",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0445",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0446",
+      "date": "2026-10-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0447",
+      "date": "2026-10-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0448",
+      "date": "2026-10-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0449",
+      "date": "2026-10-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0450",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0451",
+      "date": "2026-10-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0452",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0453",
+      "date": "2026-11-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0454",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0455",
+      "date": "2026-11-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0456",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0457",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0458",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0459",
+      "date": "2026-11-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0460",
+      "date": "2026-11-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0461",
+      "date": "2026-11-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0462",
+      "date": "2026-11-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0463",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0464",
+      "date": "2026-11-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0465",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "Administración",
+      "amount": 297000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0466",
+      "date": "2026-12-01",
+      "category": "kids",
+      "description": "Adobe",
+      "amount": 39103,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0467",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "Aguas de Manizales",
+      "amount": 122000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0468",
+      "date": "2026-12-01",
+      "category": "other",
+      "description": "Apple",
+      "amount": 3900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0469",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "CHEC",
+      "amount": 225485,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0470",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "Celular",
+      "amount": 147260,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0471",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "Gas",
+      "amount": 212176,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0472",
+      "date": "2026-12-01",
+      "category": "other",
+      "description": "GoogleDrive",
+      "amount": 19900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0473",
+      "date": "2026-12-01",
+      "category": "entertainment",
+      "description": "Netflix",
+      "amount": 44900,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0474",
+      "date": "2026-12-01",
+      "category": "kids",
+      "description": "Quincena MM",
+      "amount": 300000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0475",
+      "date": "2026-12-01",
+      "category": "entertainment",
+      "description": "Rappi Pro",
+      "amount": 23490,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0476",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "Seguridad social",
+      "amount": 1123000,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "imp-0477",
+      "date": "2026-12-01",
+      "category": "utilities",
+      "description": "TigoUne",
+      "amount": 72216,
+      "type": "expense",
+      "recurring": true
+    },
+    {
+      "id": "inc-0001",
+      "date": "2026-01-05",
+      "category": null,
+      "description": "Income payment",
+      "amount": 400000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0002",
+      "date": "2026-01-05",
+      "category": null,
+      "description": "Income payment",
+      "amount": 1572150,
+      "type": "income"
+    },
+    {
+      "id": "inc-0003",
+      "date": "2026-01-06",
+      "category": null,
+      "description": "Income payment",
+      "amount": 1030000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0004",
+      "date": "2026-01-09",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3223750,
+      "type": "income"
+    },
+    {
+      "id": "inc-0005",
+      "date": "2026-01-26",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2355500,
+      "type": "income"
+    },
+    {
+      "id": "inc-0006",
+      "date": "2026-01-30",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2351200,
+      "type": "income"
+    },
+    {
+      "id": "inc-0007",
+      "date": "2026-02-02",
+      "category": null,
+      "description": "Income payment",
+      "amount": 5048152,
+      "type": "income"
+    },
+    {
+      "id": "inc-0008",
+      "date": "2026-02-09",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2316650,
+      "type": "income"
+    },
+    {
+      "id": "inc-0009",
+      "date": "2026-02-12",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2347500,
+      "type": "income"
+    },
+    {
+      "id": "inc-0010",
+      "date": "2026-02-20",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2336500,
+      "type": "income"
+    },
+    {
+      "id": "inc-0011",
+      "date": "2026-02-27",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2361908,
+      "type": "income"
+    },
+    {
+      "id": "inc-0012",
+      "date": "2026-03-05",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2410500,
+      "type": "income"
+    },
+    {
+      "id": "inc-0013",
+      "date": "2026-03-13",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2410500,
+      "type": "income"
+    },
+    {
+      "id": "inc-0014",
+      "date": "2026-03-17",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2500000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0015",
+      "date": "2026-03-19",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2361366,
+      "type": "income"
+    },
+    {
+      "id": "inc-0016",
+      "date": "2026-03-26",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2369668,
+      "type": "income"
+    },
+    {
+      "id": "inc-0017",
+      "date": "2026-04-07",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2361366,
+      "type": "income"
+    },
+    {
+      "id": "inc-0018",
+      "date": "2026-04-16",
+      "category": null,
+      "description": "Income payment",
+      "amount": 4645407,
+      "type": "income"
+    },
+    {
+      "id": "inc-0019",
+      "date": "2026-04-24",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2500000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0020",
+      "date": "2026-04-28",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2282700,
+      "type": "income"
+    },
+    {
+      "id": "inc-0021",
+      "date": "2026-05-05",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2324200,
+      "type": "income"
+    },
+    {
+      "id": "inc-0022",
+      "date": "2026-05-11",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2381450,
+      "type": "income"
+    },
+    {
+      "id": "inc-0023",
+      "date": "2026-05-15",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2404300,
+      "type": "income"
+    },
+    {
+      "id": "inc-0024",
+      "date": "2026-05-23",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2500000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0025",
+      "date": "2026-05-27",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2386021,
+      "type": "income"
+    },
+    {
+      "id": "inc-0026",
+      "date": "2026-05-29",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3000000,
+      "type": "income"
+    },
+    {
+      "id": "inc-0027",
+      "date": "2026-06-09",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2285201,
+      "type": "income"
+    },
+    {
+      "id": "inc-0028",
+      "date": "2026-06-12",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3442421,
+      "type": "income"
+    },
+    {
+      "id": "inc-0029",
+      "date": "2026-06-22",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3334607,
+      "type": "income"
+    },
+    {
+      "id": "inc-0030",
+      "date": "2026-07-01",
+      "category": null,
+      "description": "Income payment",
+      "amount": 2191234,
+      "type": "income"
+    },
+    {
+      "id": "inc-0031",
+      "date": "2026-07-09",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3199530,
+      "type": "income"
+    },
+    {
+      "id": "inc-0032",
+      "date": "2026-07-28",
+      "category": null,
+      "description": "Income payment",
+      "amount": 3076661,
+      "type": "income"
+    },
+    {
+      "id": "tx-1785073504197-298",
+      "date": "2026-07-25",
+      "description": "Hamburger Wee Hoo",
+      "amount": 19000,
+      "category": "food",
+      "type": "expense",
+      "recurring": false,
+      "payment": {
+        "method": "amex",
+        "bank": "Bancolombia"
+      }
+    }
+  ],
+  "profile": {}
+}
