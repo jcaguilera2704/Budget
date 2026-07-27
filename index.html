@@ -69,6 +69,43 @@
   }
   .file-notice.hidden{display:none;}
 
+  /* ---------- Login gate ---------- */
+  .login-overlay{
+    position:fixed; inset:0; z-index:100;
+    background:
+      radial-gradient(ellipse at 20% -10%, #1D2547 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%, #171C36 0%, transparent 50%),
+      var(--bg);
+    display:flex; align-items:center; justify-content:center; padding:20px;
+  }
+  .login-overlay.hidden{display:none;}
+  .login-card{
+    background:var(--paper); border-radius:16px; width:100%; max-width:360px;
+    padding:30px 26px 24px; text-align:center; box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .login-card h3{
+    font-family:'Fraunces',serif; font-size:20px; font-weight:600; margin:0 0 4px; color:var(--ink);
+  }
+  .login-card .modal-sub{margin-bottom:18px;}
+  .login-card .field{text-align:left;}
+  .login-error{
+    color:var(--danger); font-size:12px; text-align:left; margin:-6px 0 4px;
+  }
+  .login-setup-note{
+    margin-top:16px; font-size:11px; color:var(--ink-soft); line-height:1.6; text-align:left;
+    background:#F3EFE2; border-radius:8px; padding:10px 12px;
+  }
+  .signout-btn{
+    background:none; border:none; color:var(--muted-dark); text-decoration:underline;
+    cursor:pointer; font-size:11.5px; font-family:'Inter'; padding:0;
+  }
+  .signout-btn:hover{color:var(--gold);}
+  .sync-status{
+    font-size:10.5px; color:var(--muted-dark); display:flex; align-items:center; gap:5px;
+  }
+  .sync-dot{width:6px; height:6px; border-radius:50%; background:var(--positive);}
+  .sync-dot.offline{background:var(--negative);}
+
   /* ---------- Header ---------- */
   .app-header{
     display:flex; align-items:flex-end; justify-content:space-between;
@@ -436,11 +473,30 @@
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="file-notice hidden" id="fileNotice">
-    ⚠️ You're viewing this as a local file. Local files share one browser storage bucket, so data from another copy of this app opened locally could show up here. This won't happen once the site is live on its real address.
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <span class="brand-mark" style="margin-bottom:14px; display:inline-block;">AB</span>
+    <h3>Aguilera's Budget</h3>
+    <div class="modal-sub" id="loginSub">Sign in to sync your data across devices</div>
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required autocomplete="current-password">
+      </div>
+      <div class="login-error" id="loginError" style="display:none;"></div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary" id="loginSubmitBtn">Sign in</button>
+      </div>
+    </form>
+    <div class="login-setup-note" id="loginSetupNote" style="display:none;"></div>
   </div>
+</div>
+<div class="wrap">
 
   <div class="app-header">
     <div class="brand">
@@ -520,7 +576,10 @@
     </div>
   </div>
 
-  <p class="footnote">This copy starts empty — use "Restore backup" to load your history privately into this browser · Data is stored only in this browser (not synced across devices) · <button id="downloadBackupBtn">Download backup</button> · <button id="restoreBackupBtn">Restore backup</button> · <button id="clearAllBtn">Clear all data</button></p>
+  <p class="footnote">
+    <span class="sync-status"><span class="sync-dot" id="syncDot"></span><span id="syncLabel">Synced to your account</span></span>
+    · <button id="downloadBackupBtn">Download backup</button> · <button id="restoreBackupBtn">Restore backup</button> · <button id="clearAllBtn">Clear all data</button> · <button class="signout-btn" id="signOutBtn">Sign out</button>
+  </p>
   <input type="file" id="restoreFileInput" accept="application/json" style="display:none;">
 </div>
 
@@ -663,6 +722,9 @@
   </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script>
 /* ========================= Categories ========================= */
 const CATEGORIES = [
@@ -712,9 +774,6 @@ function paymentLabel(payment){
   return `${pm.icon} ${pm.label}${payment.bank ? ' · ' + payment.bank : ''}`;
 }
 
-/* ========================= Seed data (imported from user's spreadsheet) ========================= */
-const SEED_TRANSACTIONS = [];
-
 /* ========================= State ========================= */
 let transactions = [];
 let viewYear, viewMonth; // 0-indexed month
@@ -758,39 +817,91 @@ function setAmountValue(el, amount){
   el.value = (amount || amount === 0) ? '$' + Number(amount).toLocaleString('es-CO') : '';
 }
 
-/* ========================= Storage ========================= */
-// This build always starts blank (no spreadsheet import baked in), so it
-// only ever needs "use what's stored, or start empty" - no version/merge
-// logic is needed here.
+/* ========================= Firebase setup ========================= */
+// Get these values from Firebase Console -> Project Settings -> General ->
+// "Your apps" -> the web app (</>) you registered. These are safe to have
+// in client-side code - they are not secret. Real protection comes from
+// Firebase Authentication + the Firestore security rules, not from hiding
+// this object.
+const firebaseConfig = {
+  apiKey: "AIzaSyCzVC9WL8F9QhZ1YnVWPsA3BjUOTQgTmDE",
+  authDomain: "aguilera-budget.firebaseapp.com",
+  projectId: "aguilera-budget",
+  storageBucket: "aguilera-budget.firebasestorage.app",
+  messagingSenderId: "43956489644",
+  appId: "1:43956489644:web:30508be50ca66514ea3e09"
+};
+const FIREBASE_NOT_CONFIGURED = firebaseConfig.apiKey.startsWith('PASTE_YOUR');
 
+let fbApp, auth, db, unsubscribeSnapshot = null;
+if(!FIREBASE_NOT_CONFIGURED){
+  fbApp = firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db = firebase.firestore();
+  db.enablePersistence({ synchronizeTabs: true }).catch(e=>console.warn('Offline persistence not enabled:', e.code));
+}
+
+function userDocRef(){
+  return db.collection('budgets').doc(auth.currentUser.uid);
+}
+
+function setSyncStatus(online){
+  const dot = document.getElementById('syncDot');
+  const label = document.getElementById('syncLabel');
+  if(!dot) return;
+  dot.classList.toggle('offline', !online);
+  label.textContent = online ? 'Synced to your account' : 'Offline - will sync when back online';
+}
+
+/* ========================= Storage (Firestore, synced across devices) ========================= */
 async function loadData(){
   try{
-    const raw = localStorage.getItem('transactions');
-    transactions = raw ? JSON.parse(raw) : [];
+    const snap = await userDocRef().get();
+    const data = snap.exists ? snap.data() : {};
+    transactions = Array.isArray(data.transactions) ? data.transactions : [];
   }catch(e){
+    console.error('Could not load data', e);
     transactions = [];
-  }
-
-  // Local file:// pages share one browser storage bucket across ALL local
-  // files, regardless of filename - so if another local copy of this app
-  // was opened before, its data can show up here even though this file's
-  // own code has nothing baked in. Flag it clearly rather than staying quiet.
-  if(location.protocol === 'file:' && transactions.length > 0){
-    console.warn('Showing data found in this browser\'s local file:// storage, not data embedded in this file.');
   }
 }
 
 async function saveData(){
   try{
-    localStorage.setItem('transactions', JSON.stringify(transactions));
+    await userDocRef().set({ transactions }, { merge: true });
+    setSyncStatus(true);
   }catch(e){
     console.error('Could not save data', e);
+    setSyncStatus(false);
   }
 }
 
-/* ========================= Financial profile ========================= */
-const SEED_PROFILE = {};
+function attachRealtimeSync(){
+  if(unsubscribeSnapshot) unsubscribeSnapshot();
+  unsubscribeSnapshot = userDocRef().onSnapshot((snap)=>{
+    setSyncStatus(!snap.metadata.fromCache);
+    if(!snap.exists) return;
+    const data = snap.data();
+    let changed = false;
+    if(Array.isArray(data.transactions)){
+      transactions = data.transactions;
+      changed = true;
+    }
+    if(data.profile && typeof data.profile === 'object'){
+      profile = data.profile;
+      changed = true;
+    }
+    if(changed){
+      renderCalendar();
+      renderSummary();
+      renderDayDetail();
+    }
+  }, (err)=>{
+    console.error('Realtime sync error', err);
+    setSyncStatus(false);
+  });
+}
 
+/* ========================= Financial profile ========================= */
 const PROFILE_LABELS = {
   goal: 'Primary financial goal',
   savingsGoal: 'Monthly savings goal',
@@ -807,21 +918,22 @@ let profile = {};
 
 async function loadProfile(){
   try{
-    const raw = localStorage.getItem('profile');
-    if(raw){
-      profile = JSON.parse(raw);
-      return;
-    }
-  }catch(e){ /* not set yet */ }
-  profile = Object.assign({}, SEED_PROFILE);
-  await saveProfile();
+    const snap = await userDocRef().get();
+    const data = snap.exists ? snap.data() : {};
+    profile = (data.profile && typeof data.profile === 'object') ? data.profile : {};
+  }catch(e){
+    console.error('Could not load profile', e);
+    profile = {};
+  }
 }
 
 async function saveProfile(){
   try{
-    localStorage.setItem('profile', JSON.stringify(profile));
+    await userDocRef().set({ profile }, { merge: true });
+    setSyncStatus(true);
   }catch(e){
     console.error('Could not save profile', e);
+    setSyncStatus(false);
   }
 }
 
@@ -1460,10 +1572,8 @@ function changeMonth(delta){
 }
 
 /* ========================= Init ========================= */
-async function init(){
-  if(location.protocol === 'file:'){
-    document.getElementById('fileNotice').classList.remove('hidden');
-  }
+async function onAuthenticated(){
+  document.getElementById('loginOverlay').classList.add('hidden');
   await loadData();
   await loadProfile();
   viewYear = todayObj.getFullYear();
@@ -1473,6 +1583,57 @@ async function init(){
   renderCalendar();
   renderSummary();
   renderDayDetail();
+  attachRealtimeSync();
+}
+
+function onSignedOut(){
+  if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
+  transactions = [];
+  profile = {};
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('loginForm').reset();
+}
+
+function initLoginGate(){
+  if(FIREBASE_NOT_CONFIGURED){
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('loginSub').textContent = 'Setup needed';
+    const note = document.getElementById('loginSetupNote');
+    note.style.display = 'block';
+    note.textContent = 'Firebase isn\'t configured in this file yet. Fill in firebaseConfig near the top of the script with your project\'s values from Firebase Console -> Project Settings -> General -> Your apps.';
+    return;
+  }
+  auth.onAuthStateChanged((user)=>{
+    if(user) onAuthenticated();
+    else onSignedOut();
+  });
+  document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    const errBox = document.getElementById('loginError');
+    const btn = document.getElementById('loginSubmitBtn');
+    errBox.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+    try{
+      await auth.signInWithEmailAndPassword(email, password);
+    }catch(err){
+      errBox.textContent = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found'
+        ? 'Incorrect email or password.'
+        : ('Could not sign in: ' + err.message);
+      errBox.style.display = 'block';
+    }finally{
+      btn.disabled = false;
+      btn.textContent = 'Sign in';
+    }
+  });
+  document.getElementById('signOutBtn').addEventListener('click', ()=> auth.signOut());
+}
+
+async function init(){
+  initLoginGate();
 
   document.getElementById('prevMonth').addEventListener('click', ()=>changeMonth(-1));
   document.getElementById('nextMonth').addEventListener('click', ()=>changeMonth(1));
