@@ -45,6 +45,10 @@
     --c-entertainment:#E07B22;
     --c-family_outing:#C9A227;
     --c-other:#867F70;
+    --c-education:#8B5E34;
+    --c-home:#7A9471;
+    --c-gifts:#B0356B;
+    --c-subscriptions:#37517A;
   }
 
   *{box-sizing:border-box;}
@@ -742,6 +746,10 @@ const CATEGORIES = [
   { id:'travel',         label:'Travel',          icon:'✈️', var:'--c-travel' },
   { id:'entertainment',  label:'Entertainment',   icon:'🎉', var:'--c-entertainment' },
   { id:'family_outing',  label:'Family Outing',   icon:'👨‍👩‍👧', var:'--c-family_outing' },
+  { id:'education',      label:'Education',       icon:'🎓', var:'--c-education' },
+  { id:'home',           label:'Home',            icon:'🛋️', var:'--c-home' },
+  { id:'gifts',          label:'Gifts',           icon:'🎁', var:'--c-gifts' },
+  { id:'subscriptions',  label:'Subscriptions',   icon:'💻', var:'--c-subscriptions' },
   { id:'other',          label:'Other',           icon:'📦', var:'--c-other' },
 ];
 const CAT_BY_ID = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
@@ -786,6 +794,7 @@ let selectedDate = null; // 'YYYY-MM-DD'
 let editingTxId = null;
 let modalType = 'expense'; // 'expense' | 'income'
 let chosenCategory = 'food';
+let categoryManuallyChosen = false;
 let chosenPayment = 'cash';
 
 const todayObj = new Date();
@@ -1468,6 +1477,46 @@ function escapeHtml(str){
 }
 
 /* ========================= Modal / add entry ========================= */
+function normalizeForMatch(s){
+  const nfkd = (s||'').normalize('NFKD');
+  const noAccents = nfkd.replace(/[\u0300-\u036f]/g, '');
+  return noAccents.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function suggestCategoryFor(description){
+  const target = normalizeForMatch(description);
+  if(target.length < 3) return null;
+  const counts = {};
+  let bestExactCategory = null;
+  for(const t of transactions){
+    if(t.type !== 'expense' || !t.category) continue;
+    const n = normalizeForMatch(t.description);
+    if(!n) continue;
+    if(n === target){
+      bestExactCategory = t.category;
+    }
+    if(n === target || n.includes(target) || target.includes(n)){
+      counts[t.category] = (counts[t.category] || 0) + 1;
+    }
+  }
+  if(bestExactCategory) return bestExactCategory;
+  let best = null, bestCount = 0;
+  for(const cat in counts){
+    if(counts[cat] > bestCount){ best = cat; bestCount = counts[cat]; }
+  }
+  return best;
+}
+
+function maybeSuggestCategory(){
+  if(editingTxId || categoryManuallyChosen || modalType !== 'expense') return;
+  const desc = document.getElementById('txDesc').value;
+  const suggestion = suggestCategoryFor(desc);
+  if(suggestion && suggestion !== chosenCategory){
+    chosenCategory = suggestion;
+    buildCatPicker();
+  }
+}
+
 function buildCatPicker(){
   const picker = document.getElementById('catPicker');
   picker.innerHTML = '';
@@ -1476,8 +1525,8 @@ function buildCatPicker(){
     btn.className = 'cat-choice' + (c.id===chosenCategory ? ' selected':'');
     btn.tabIndex = 0;
     btn.innerHTML = `<span class="sw" style="background:${catColor(c.id)}"></span>${c.icon} ${c.label}`;
-    btn.addEventListener('click', ()=>{ chosenCategory = c.id; buildCatPicker(); });
-    btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); chosenCategory=c.id; buildCatPicker(); }});
+    btn.addEventListener('click', ()=>{ chosenCategory = c.id; categoryManuallyChosen = true; buildCatPicker(); });
+    btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); chosenCategory=c.id; categoryManuallyChosen = true; buildCatPicker(); }});
     picker.appendChild(btn);
   });
 }
@@ -1537,9 +1586,12 @@ function openModal(dateStr, txId, presetType){
     document.getElementById('txAmount').value = '';
     chosenCategory = 'food';
     chosenPayment = 'cash';
+    categoryManuallyChosen = false;
     document.getElementById('txBank').value = '';
     setModalType(presetType || 'expense');
   }
+  if(editingTxId) categoryManuallyChosen = true; // don't override an already-set category while editing
+ 
   buildCatPicker();
   buildPaymentPicker();
   overlay.classList.remove('hidden');
@@ -1676,6 +1728,7 @@ async function init(){
   document.getElementById('modalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='modalOverlay') closeModal(); });
   document.getElementById('txForm').addEventListener('submit', handleFormSubmit);
   document.getElementById('txAmount').addEventListener('input', (e)=> formatAmountInput(e.target));
+  document.getElementById('txDesc').addEventListener('input', maybeSuggestCategory);
   document.getElementById('tabExpense').addEventListener('click', ()=>{ chosenPayment='cash'; setModalType('expense'); buildPaymentPicker(); });
   document.getElementById('tabIncome').addEventListener('click', ()=>{ chosenPayment='cash'; setModalType('income'); buildPaymentPicker(); });
   document.getElementById('clearAllBtn').addEventListener('click', async ()=>{
