@@ -373,6 +373,11 @@
   .tx-desc .c{font-size:10.5px; color:var(--muted-dark);}
   .tx-amt{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--cream); white-space:nowrap;}
   .tx-amt.income{color:var(--positive);}
+  /* This component is also reused inside light-background modals (e.g. category detail) -
+     override the dark-panel text colors so they stay readable there too */
+  .modal .tx-desc .t{color:var(--ink);}
+  .modal .tx-desc .c{color:var(--ink-soft);}
+  .modal .tx-amt{color:var(--ink);}
   .tx-del{
     background:none; border:none; color:var(--muted-dark); cursor:pointer; font-size:15px;
     padding:2px 4px; line-height:1; border-radius:4px;
