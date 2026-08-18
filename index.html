@@ -268,7 +268,8 @@
   .pie-center .lbl{font-size:9.5px; color:var(--muted-dark); text-transform:uppercase; letter-spacing:0.06em; margin-top:2px;}
 
   .pie-legend{width:100%; display:flex; flex-direction:column; gap:9px;}
-  .cat-row{display:flex; align-items:center; gap:8px; font-size:12.5px;}
+  .cat-row{display:flex; align-items:center; gap:8px; font-size:12.5px; cursor:pointer; border-radius:6px; padding:3px 4px; margin:0 -4px; transition:background .12s;}
+  .cat-row:hover{background:rgba(244,241,230,0.06);}
   .cat-dot{width:9px; height:9px; border-radius:3px; flex-shrink:0;}
   .cat-name{color:var(--cream); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .cat-pct{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted-dark); min-width:32px; text-align:right;}
@@ -316,7 +317,8 @@
   .insight-empty{color:var(--ink-soft); font-size:13px; text-align:center; padding:24px 10px;}
 
   /* ---------- Category budgets ---------- */
-  .budget-row{margin-bottom:12px;}
+  .budget-row{margin-bottom:12px; cursor:pointer; border-radius:6px; padding:4px; margin-left:-4px; margin-right:-4px; transition:background .12s;}
+  .budget-row:hover{background:rgba(244,241,230,0.06);}
   .budget-row:last-child{margin-bottom:0;}
   .budget-row .top-line{display:flex; justify-content:space-between; align-items:baseline; font-size:12px; margin-bottom:4px;}
   .budget-row .cat-label{color:var(--cream); display:flex; align-items:center; gap:6px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
@@ -572,7 +574,8 @@
     <div class="side-col">
       <div class="panel" id="summaryPanel">
         <h2>Month summary <span class="eyebrow" id="summaryCount"></span></h2>
-        <button class="edit-profile-link" id="openRecurringBtn" style="text-align:left; margin-bottom:14px;">🔁 Add this month's recurring bills</button>
+        <button class="edit-profile-link" id="openRecurringBtn" style="text-align:left; margin-bottom:6px;">🔁 Add this month's recurring bills</button>
+        <button class="edit-profile-link" id="openAllPurchasesBtn" style="text-align:left; margin-bottom:14px;">🧾 See all purchases</button>
 
         <div class="stat-grid">
           <div class="stat-box income">
@@ -794,6 +797,15 @@
       <button type="button" class="btn btn-secondary" id="cancelRecurringBtn">Cancel</button>
       <button type="button" class="btn btn-primary" id="addRecurringBtn">Add selected</button>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="categoryModalOverlay">
+  <div class="modal modal-lg">
+    <button class="close-x" id="closeCategoryBtn" aria-label="Close">✕</button>
+    <h3 id="categoryModalTitle">Category</h3>
+    <div class="modal-sub" id="categoryModalSub">All purchases</div>
+    <div id="categoryModalBody"></div>
   </div>
 </div>
 
@@ -1304,7 +1316,7 @@ function renderBudgetProgress(byCat){
     const pct = Math.min(100, Math.round(spent / budget * 100));
     const tone = spent > budget ? 'over' : (pct >= 80 ? 'warn' : 'ok');
     return `
-      <div class="budget-row">
+      <div class="budget-row" data-cat="${c.id}">
         <div class="top-line">
           <span class="cat-label">${c.icon} ${c.label}</span>
           <span class="amounts">${fmtMoney(spent)} / ${fmtMoney(budget)}</span>
@@ -1314,6 +1326,9 @@ function renderBudgetProgress(byCat){
         </div>
       </div>`;
   }).join('');
+  body.querySelectorAll('.budget-row').forEach(row => {
+    row.addEventListener('click', ()=> openCategoryModal(row.getAttribute('data-cat')));
+  });
 }
 
 function buildBudgetFormFields(){
@@ -1445,6 +1460,54 @@ async function handleAddRecurringSubmit(){
     renderDayDetail();
   }
   closeRecurringModal();
+}
+
+/* ========================= Category detail (click a category name) ========================= */
+function openCategoryModal(categoryId){
+  const isAll = !categoryId;
+  const cat = isAll ? null : CAT_BY_ID[categoryId];
+  if(!isAll && !cat) return;
+  const items = transactions
+    .filter(t => t.type==='expense' && (isAll || t.category===categoryId))
+    .sort((a,b) => b.date.localeCompare(a.date));
+  const total = items.reduce((s,t)=>s+t.amount, 0);
+
+  document.getElementById('categoryModalTitle').textContent = isAll ? '\ud83e\uddfe All Purchases' : `${cat.icon} ${cat.label}`;
+  document.getElementById('categoryModalSub').textContent =
+    `${items.length} purchase${items.length===1?'':'s'} \u00b7 ${fmtMoney(total)} all-time`;
+
+  const body = document.getElementById('categoryModalBody');
+  if(items.length === 0){
+    body.innerHTML = '<p class="empty-note">No purchases yet.</p>';
+  }else{
+    body.innerHTML = `<div class="tx-list" style="max-height:55vh;">${items.map(t => {
+      const pmLabel = paymentLabel(t.payment);
+      const itemCat = CAT_BY_ID[t.category] || CAT_BY_ID.other;
+      const subLine = isAll
+        ? `${itemCat.icon} ${itemCat.label} \u00b7 ${t.date}${pmLabel ? ' \u00b7 ' + pmLabel : ''}`
+        : `${t.date}${pmLabel ? ' \u00b7 ' + pmLabel : ''}`;
+      return `
+        <div class="tx-item" data-id="${t.id}">
+          <span class="tx-dot" style="background:${catColor(t.category)}"></span>
+          <span class="tx-desc">
+            <span class="t">${escapeHtml(t.description)}${t.recurring ? '<span class="recurring-tag">\u21bb recurring</span>':''}</span>
+            <span class="c">${subLine}</span>
+          </span>
+          <span class="tx-amt">${fmtMoney(t.amount)}</span>
+        </div>`;
+    }).join('')}</div>`;
+    body.querySelectorAll('.tx-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const id = item.getAttribute('data-id');
+        closeCategoryModal();
+        openModal(null, id);
+      });
+    });
+  }
+  document.getElementById('categoryModalOverlay').classList.remove('hidden');
+}
+function closeCategoryModal(){
+  document.getElementById('categoryModalOverlay').classList.add('hidden');
 }
 
 /* ========================= Helpers ========================= */
@@ -1611,6 +1674,7 @@ function renderSummary(){
       <span class="cat-pct">${pct}%</span>
       <span class="cat-amt">${fmtMoney(amt)}</span>
     `;
+    row.addEventListener('click', ()=> openCategoryModal(c.id));
     legend.appendChild(row);
   });
 }
@@ -2053,8 +2117,13 @@ async function init(){
   document.getElementById('recurringModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='recurringModalOverlay') closeRecurringModal(); });
   document.getElementById('addRecurringBtn').addEventListener('click', handleAddRecurringSubmit);
 
+  // Category detail modal
+  document.getElementById('closeCategoryBtn').addEventListener('click', closeCategoryModal);
+  document.getElementById('openAllPurchasesBtn').addEventListener('click', ()=> openCategoryModal(null));
+  document.getElementById('categoryModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='categoryModalOverlay') closeCategoryModal(); });
+
   document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); closeBudgetModal(); closeRecurringModal(); }
+    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); closeBudgetModal(); closeRecurringModal(); closeCategoryModal(); }
   });
 }
 
