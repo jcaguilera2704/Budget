@@ -1467,31 +1467,27 @@ function openCategoryModal(categoryId){
   const isAll = !categoryId;
   const cat = isAll ? null : CAT_BY_ID[categoryId];
   if(!isAll && !cat) return;
+  const monthKey = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}`;
   const items = transactions
-    .filter(t => t.type==='expense' && (isAll || t.category===categoryId))
+    .filter(t => t.type==='expense' && (isAll || t.category===categoryId) && t.date.startsWith(monthKey))
     .sort((a,b) => b.date.localeCompare(a.date));
   const total = items.reduce((s,t)=>s+t.amount, 0);
 
   document.getElementById('categoryModalTitle').textContent = isAll ? '\ud83e\uddfe All Purchases' : `${cat.icon} ${cat.label}`;
   document.getElementById('categoryModalSub').textContent =
-    `${items.length} purchase${items.length===1?'':'s'} \u00b7 ${fmtMoney(total)} all-time`;
+    `${items.length} purchase${items.length===1?'':'s'} \u00b7 ${fmtMoney(total)} in ${monthLabel(monthKey)}`;
 
   const body = document.getElementById('categoryModalBody');
   if(items.length === 0){
-    body.innerHTML = '<p class="empty-note">No purchases yet.</p>';
+    body.innerHTML = `<p class="empty-note">No purchases${isAll?'':' in this category'} in ${monthLabel(monthKey)}.</p>`;
   }else{
     body.innerHTML = `<div class="tx-list" style="max-height:55vh;">${items.map(t => {
-      const pmLabel = paymentLabel(t.payment);
-      const itemCat = CAT_BY_ID[t.category] || CAT_BY_ID.other;
-      const subLine = isAll
-        ? `${itemCat.icon} ${itemCat.label} \u00b7 ${t.date}${pmLabel ? ' \u00b7 ' + pmLabel : ''}`
-        : `${t.date}${pmLabel ? ' \u00b7 ' + pmLabel : ''}`;
       return `
         <div class="tx-item" data-id="${t.id}">
           <span class="tx-dot" style="background:${catColor(t.category)}"></span>
           <span class="tx-desc">
-            <span class="t">${escapeHtml(t.description)}${t.recurring ? '<span class="recurring-tag">\u21bb recurring</span>':''}</span>
-            <span class="c">${subLine}</span>
+            <span class="t">${escapeHtml(t.description)}</span>
+            <span class="c">${t.date}</span>
           </span>
           <span class="tx-amt">${fmtMoney(t.amount)}</span>
         </div>`;
