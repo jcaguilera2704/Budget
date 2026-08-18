@@ -1023,14 +1023,23 @@ async function saveProfile(){
   }
 }
 
+const DEFAULT_BUDGETS = { food:1900000, utilities:2200000, entertainment:550000, transport:300000, subscriptions:55000 };
+
 async function loadBudgets(){
   try{
     const snap = await userDocRef().get();
     const data = snap.exists ? snap.data() : {};
-    categoryBudgets = (data.categoryBudgets && typeof data.categoryBudgets === 'object') ? data.categoryBudgets : {};
+    if(data.categoryBudgets && typeof data.categoryBudgets === 'object'){
+      categoryBudgets = data.categoryBudgets;
+    }else{
+      // first time budgets are loaded: start from the recommended goals for
+      // steady categories, still fully editable via "Set category budgets"
+      categoryBudgets = Object.assign({}, DEFAULT_BUDGETS);
+      await saveBudgets();
+    }
   }catch(e){
     console.error('Could not load budgets', e);
-    categoryBudgets = {};
+    categoryBudgets = Object.assign({}, DEFAULT_BUDGETS);
   }
 }
 
@@ -1050,7 +1059,8 @@ function downloadBackup(){
     app: "Aguilera's Budget",
     exportedAt: new Date().toISOString(),
     transactions,
-    profile
+    profile,
+    categoryBudgets
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
   const url = URL.createObjectURL(blob);
@@ -1084,8 +1094,12 @@ async function handleRestoreFile(e){
     if(!ok) return;
     transactions = parsed.transactions;
     profile = parsed.profile && typeof parsed.profile === 'object' ? parsed.profile : {};
+    if(parsed.categoryBudgets && typeof parsed.categoryBudgets === 'object'){
+      categoryBudgets = parsed.categoryBudgets; // older backups won't have this - leave current budgets untouched in that case
+    }
     await saveData();
     await saveProfile();
+    await saveBudgets();
     renderCalendar();
     renderSummary();
     renderDayDetail();
