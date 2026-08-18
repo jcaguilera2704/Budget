@@ -314,6 +314,34 @@
   .insight-card.good{border-color:rgba(63,166,108,0.35); background:rgba(63,166,108,0.06);}
   .insight-card.warn{border-color:rgba(212,87,74,0.35); background:rgba(212,87,74,0.06);}
   .insight-empty{color:var(--ink-soft); font-size:13px; text-align:center; padding:24px 10px;}
+
+  /* ---------- Category budgets ---------- */
+  .budget-row{margin-bottom:12px;}
+  .budget-row:last-child{margin-bottom:0;}
+  .budget-row .top-line{display:flex; justify-content:space-between; align-items:baseline; font-size:12px; margin-bottom:4px;}
+  .budget-row .cat-label{color:var(--cream); display:flex; align-items:center; gap:6px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .budget-row .amounts{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted-dark); white-space:nowrap; flex-shrink:0;}
+  .budget-bar-track{height:7px; background:rgba(244,241,230,0.08); border-radius:4px; overflow:hidden;}
+  .budget-bar-fill{height:100%; border-radius:4px; transition:width .2s;}
+  .budget-bar-fill.ok{background:var(--positive);}
+  .budget-bar-fill.warn{background:var(--gold);}
+  .budget-bar-fill.over{background:var(--negative);}
+
+  .budget-field-row{display:flex; align-items:center; gap:10px; margin-bottom:11px;}
+  .budget-field-row .cat-tag{flex:1; display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink); min-width:0;}
+  .budget-field-row input{width:130px; flex-shrink:0;}
+
+  /* ---------- Recurring quick-add ---------- */
+  .recurring-list{max-height:50vh; overflow-y:auto; margin-bottom:14px; padding-right:2px;}
+  .recurring-item{
+    display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--paper-line);
+    border-radius:9px; padding:10px 12px; margin-bottom:8px;
+  }
+  .recurring-item input[type=checkbox]{width:18px; height:18px; flex-shrink:0; accent-color:var(--ink);}
+  .recurring-item .info{flex:1; min-width:0;}
+  .recurring-item .info .t{font-size:13px; color:var(--ink); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .recurring-item .info .c{font-size:11px; color:var(--ink-soft);}
+  .recurring-item input[type=text]{width:110px; flex-shrink:0; text-align:right; padding:7px 9px; font-size:13px;}
   .advice-footer{display:flex; gap:10px; margin-top:16px;}
 
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
@@ -422,6 +450,7 @@
     font-family:'Inter'; border:none; transition:opacity .15s;
   }
   .btn:hover{opacity:0.88;}
+  .btn:disabled{opacity:0.6; cursor:not-allowed;}
   .btn-primary{background:var(--ink); color:var(--cream);}
   .btn-primary.income-active{background:var(--positive);}
   .btn-secondary{background:transparent; color:var(--ink-soft); border:1px solid var(--paper-line);}
@@ -543,6 +572,7 @@
     <div class="side-col">
       <div class="panel" id="summaryPanel">
         <h2>Month summary <span class="eyebrow" id="summaryCount"></span></h2>
+        <button class="edit-profile-link" id="openRecurringBtn" style="text-align:left; margin-bottom:14px;">🔁 Add this month's recurring bills</button>
 
         <div class="stat-grid">
           <div class="stat-box income">
@@ -570,6 +600,14 @@
           <div class="pie-legend" id="pieLegend"></div>
         </div>
         <div id="noSpendNote"></div>
+      </div>
+
+      <div class="panel" id="budgetPanel">
+        <h2>Category budgets</h2>
+        <div id="budgetProgressBody">
+          <p class="empty-note">Set a monthly budget per category to track spending against it.</p>
+        </div>
+        <button class="edit-profile-link" id="openBudgetsBtn" style="margin-top:12px;">Set category budgets</button>
       </div>
 
       <div class="panel" id="dayPanel">
@@ -731,6 +769,34 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="budgetModalOverlay">
+  <div class="modal modal-lg">
+    <button class="close-x" id="closeBudgetBtn" aria-label="Close">✕</button>
+    <h3>Category budgets</h3>
+    <div class="modal-sub">Set a monthly limit per category. Leave a field empty for categories you don't want to track.</div>
+    <form id="budgetForm">
+      <div id="budgetFormFields"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="cancelBudgetBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save budgets</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="recurringModalOverlay">
+  <div class="modal modal-lg">
+    <button class="close-x" id="closeRecurringBtn" aria-label="Close">✕</button>
+    <h3>Add recurring expenses</h3>
+    <div class="modal-sub" id="recurringModalSub">For this month</div>
+    <div id="recurringListBody"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" id="cancelRecurringBtn">Cancel</button>
+      <button type="button" class="btn btn-primary" id="addRecurringBtn">Add selected</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
@@ -792,6 +858,7 @@ let transactions = [];
 let viewYear, viewMonth; // 0-indexed month
 let selectedDate = null; // 'YYYY-MM-DD'
 let editingTxId = null;
+let isSubmitting = false;
 let modalType = 'expense'; // 'expense' | 'income'
 let chosenCategory = 'food';
 let categoryManuallyChosen = false;
@@ -904,6 +971,10 @@ function attachRealtimeSync(){
       profile = data.profile;
       changed = true;
     }
+    if(data.categoryBudgets && typeof data.categoryBudgets === 'object'){
+      categoryBudgets = data.categoryBudgets;
+      changed = true;
+    }
     if(changed){
       renderCalendar();
       renderSummary();
@@ -929,6 +1000,7 @@ const PROFILE_LABELS = {
 };
 
 let profile = {};
+let categoryBudgets = {};
 
 async function loadProfile(){
   try{
@@ -947,6 +1019,27 @@ async function saveProfile(){
     setSyncStatus(true);
   }catch(e){
     console.error('Could not save profile', e);
+    setSyncStatus(false);
+  }
+}
+
+async function loadBudgets(){
+  try{
+    const snap = await userDocRef().get();
+    const data = snap.exists ? snap.data() : {};
+    categoryBudgets = (data.categoryBudgets && typeof data.categoryBudgets === 'object') ? data.categoryBudgets : {};
+  }catch(e){
+    console.error('Could not load budgets', e);
+    categoryBudgets = {};
+  }
+}
+
+async function saveBudgets(){
+  try{
+    await userDocRef().set({ categoryBudgets }, { merge: true });
+    setSyncStatus(true);
+  }catch(e){
+    console.error('Could not save budgets', e);
     setSyncStatus(false);
   }
 }
@@ -1183,6 +1276,163 @@ function closeAdviceModal(){
   document.getElementById('adviceModalOverlay').classList.add('hidden');
 }
 
+/* ========================= Category budgets ========================= */
+function renderBudgetProgress(byCat){
+  const body = document.getElementById('budgetProgressBody');
+  const withBudget = CATEGORIES.filter(c => categoryBudgets[c.id] > 0);
+  if(withBudget.length === 0){
+    body.innerHTML = '<p class="empty-note">Set a monthly budget per category to track spending against it.</p>';
+    return;
+  }
+  body.innerHTML = withBudget.map(c => {
+    const spent = byCat[c.id] || 0;
+    const budget = categoryBudgets[c.id];
+    const pct = Math.min(100, Math.round(spent / budget * 100));
+    const tone = spent > budget ? 'over' : (pct >= 80 ? 'warn' : 'ok');
+    return `
+      <div class="budget-row">
+        <div class="top-line">
+          <span class="cat-label">${c.icon} ${c.label}</span>
+          <span class="amounts">${fmtMoney(spent)} / ${fmtMoney(budget)}</span>
+        </div>
+        <div class="budget-bar-track">
+          <div class="budget-bar-fill ${tone}" style="width:${pct}%"></div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function buildBudgetFormFields(){
+  const container = document.getElementById('budgetFormFields');
+  container.innerHTML = CATEGORIES.map(c => `
+    <div class="budget-field-row">
+      <span class="cat-tag">${c.icon} ${c.label}</span>
+      <input type="text" inputmode="numeric" class="budget-input" data-cat="${c.id}" placeholder="$0">
+    </div>`).join('');
+  CATEGORIES.forEach(c => {
+    const input = container.querySelector(`input[data-cat="${c.id}"]`);
+    if(categoryBudgets[c.id] > 0){
+      setAmountValue(input, categoryBudgets[c.id]);
+    }
+    input.addEventListener('input', (e) => formatAmountInput(e.target));
+  });
+}
+
+function openBudgetModal(){
+  buildBudgetFormFields();
+  document.getElementById('budgetModalOverlay').classList.remove('hidden');
+}
+function closeBudgetModal(){
+  document.getElementById('budgetModalOverlay').classList.add('hidden');
+}
+
+async function handleBudgetSubmit(e){
+  e.preventDefault();
+  const inputs = document.querySelectorAll('#budgetFormFields .budget-input');
+  const newBudgets = {};
+  inputs.forEach(input => {
+    const digits = digitsFromInput(input.value);
+    if(digits){
+      newBudgets[input.getAttribute('data-cat')] = parseInt(digits, 10);
+    }
+  });
+  categoryBudgets = newBudgets;
+  await saveBudgets();
+  closeBudgetModal();
+  renderSummary();
+}
+
+/* ========================= Recurring quick-add ========================= */
+function getRecurringTemplateForMonth(){
+  const latestByDesc = {};
+  transactions
+    .filter(t => t.type === 'expense' && t.recurring)
+    .sort((a,b) => a.date.localeCompare(b.date))
+    .forEach(t => { latestByDesc[t.description] = t; });
+
+  const monthKey = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}`;
+  const alreadyLogged = new Set(
+    transactions.filter(t => t.type==='expense' && t.date.startsWith(monthKey)).map(t => t.description)
+  );
+  return Object.values(latestByDesc)
+    .filter(t => !alreadyLogged.has(t.description))
+    .sort((a,b) => b.amount - a.amount);
+}
+
+let recurringTemplateItems = [];
+
+function renderRecurringList(){
+  recurringTemplateItems = getRecurringTemplateForMonth();
+  const body = document.getElementById('recurringListBody');
+  const monthKey = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}`;
+  document.getElementById('recurringModalSub').textContent = 'For ' + monthLabel(monthKey);
+  document.getElementById('addRecurringBtn').style.display = recurringTemplateItems.length ? 'block' : 'none';
+
+  if(recurringTemplateItems.length === 0){
+    body.innerHTML = "<p class=\"empty-note\">No recurring bills waiting to be added — either there's no recurring history yet, or everything recurring is already logged this month.</p>";
+    return;
+  }
+
+  body.innerHTML = `<div class="recurring-list">${recurringTemplateItems.map((t,i) => {
+    const c = CAT_BY_ID[t.category] || CAT_BY_ID.other;
+    return `
+      <div class="recurring-item">
+        <input type="checkbox" class="rec-check" data-idx="${i}" checked>
+        <span class="info">
+          <span class="t">${escapeForAdvice(t.description)}</span>
+          <span class="c">${c.icon} ${c.label}</span>
+        </span>
+        <input type="text" inputmode="numeric" class="rec-amount" data-idx="${i}">
+      </div>`;
+  }).join('')}</div>`;
+
+  recurringTemplateItems.forEach((t, i) => {
+    const input = body.querySelector(`.rec-amount[data-idx="${i}"]`);
+    setAmountValue(input, t.amount);
+    input.addEventListener('input', (e) => formatAmountInput(e.target));
+  });
+}
+
+function openRecurringModal(){
+  renderRecurringList();
+  document.getElementById('recurringModalOverlay').classList.remove('hidden');
+}
+function closeRecurringModal(){
+  document.getElementById('recurringModalOverlay').classList.add('hidden');
+}
+
+async function handleAddRecurringSubmit(){
+  const monthKey = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}-01`;
+  const checks = document.querySelectorAll('.rec-check');
+  let addedCount = 0;
+  checks.forEach(chk => {
+    if(!chk.checked) return;
+    const idx = parseInt(chk.getAttribute('data-idx'), 10);
+    const template = recurringTemplateItems[idx];
+    const amountInput = document.querySelector(`.rec-amount[data-idx="${idx}"]`);
+    const digits = digitsFromInput(amountInput.value);
+    const amount = digits ? parseInt(digits, 10) : template.amount;
+    transactions.push({
+      id: 'tx-' + Date.now() + '-' + Math.floor(Math.random()*1000) + '-' + idx,
+      date: monthKey,
+      description: template.description,
+      amount: amount,
+      category: template.category,
+      type: 'expense',
+      recurring: true,
+      payment: template.payment || null
+    });
+    addedCount++;
+  });
+  if(addedCount > 0){
+    await saveData();
+    renderCalendar();
+    renderSummary();
+    renderDayDetail();
+  }
+  closeRecurringModal();
+}
+
 /* ========================= Helpers ========================= */
 function txsForDate(dateStr){
   return transactions.filter(t => t.date === dateStr);
@@ -1296,6 +1546,8 @@ function renderSummary(){
   const byCat = {};
   CATEGORIES.forEach(c=> byCat[c.id]=0);
   txs.filter(t=>t.type==='expense').forEach(t=> byCat[t.category] = (byCat[t.category]||0) + t.amount);
+
+  renderBudgetProgress(byCat);
 
   const pieSection = document.getElementById('pieSection');
   const noSpendNote = document.getElementById('noSpendNote');
@@ -1605,37 +1857,52 @@ function closeModal(){
 
 async function handleFormSubmit(e){
   e.preventDefault();
+  if(isSubmitting) return; // ignore extra clicks/Enter presses while a save is already in flight
+
   const date = document.getElementById('txDate').value;
   const description = document.getElementById('txDesc').value.trim();
   const amountDigits = digitsFromInput(document.getElementById('txAmount').value);
   const amount = amountDigits === '' ? NaN : parseInt(amountDigits, 10);
   if(!date || !description || isNaN(amount) || amount<0) return;
 
-  const bankVal = document.getElementById('txBank').value.trim();
-  const payment = {
-    method: chosenPayment,
-    bank: (PM_BY_ID[chosenPayment].needsBank && bankVal) ? bankVal : null
-  };
+  isSubmitting = true;
+  const saveBtn = document.getElementById('saveBtn');
+  const savingLabel = editingTxId ? 'Saving changes...' : (modalType==='income' ? 'Saving income...' : 'Saving purchase...');
+  const originalLabel = saveBtn.textContent;
+  saveBtn.disabled = true;
+  saveBtn.textContent = savingLabel;
 
-  if(editingTxId){
-    const tx = transactions.find(t=>t.id===editingTxId);
-    tx.date = date; tx.description = description; tx.amount = Math.round(amount);
-    tx.type = modalType; tx.category = modalType==='income' ? null : chosenCategory;
-    tx.payment = payment;
-  }else{
-    transactions.push({
-      id: (modalType==='income'?'inc-':'tx-') + Date.now() + '-' + Math.floor(Math.random()*1000),
-      date, description, amount: Math.round(amount),
-      category: modalType==='income' ? null : chosenCategory,
-      type: modalType, recurring:false, payment
-    });
+  try{
+    const bankVal = document.getElementById('txBank').value.trim();
+    const payment = {
+      method: chosenPayment,
+      bank: (PM_BY_ID[chosenPayment].needsBank && bankVal) ? bankVal : null
+    };
+
+    if(editingTxId){
+      const tx = transactions.find(t=>t.id===editingTxId);
+      tx.date = date; tx.description = description; tx.amount = Math.round(amount);
+      tx.type = modalType; tx.category = modalType==='income' ? null : chosenCategory;
+      tx.payment = payment;
+    }else{
+      transactions.push({
+        id: (modalType==='income'?'inc-':'tx-') + Date.now() + '-' + Math.floor(Math.random()*1000),
+        date, description, amount: Math.round(amount),
+        category: modalType==='income' ? null : chosenCategory,
+        type: modalType, recurring:false, payment
+      });
+    }
+    await saveData();
+    selectedDate = date;
+    closeModal();
+    renderCalendar();
+    renderSummary();
+    renderDayDetail();
+  } finally {
+    isSubmitting = false;
+    saveBtn.disabled = false;
+    saveBtn.textContent = originalLabel;
   }
-  await saveData();
-  selectedDate = date;
-  closeModal();
-  renderCalendar();
-  renderSummary();
-  renderDayDetail();
 }
 
 /* ========================= Nav ========================= */
@@ -1654,6 +1921,7 @@ async function onAuthenticated(){
   document.getElementById('loginOverlay').classList.add('hidden');
   await loadData();
   await loadProfile();
+  await loadBudgets();
   viewYear = todayObj.getFullYear();
   viewMonth = todayObj.getMonth();
   selectedDate = todayStr;
@@ -1757,8 +2025,22 @@ async function init(){
   document.getElementById('adviceRefreshBtn').addEventListener('click', renderInsights);
   document.getElementById('adviceModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='adviceModalOverlay') closeAdviceModal(); });
 
+  // Category budgets modal
+  document.getElementById('openBudgetsBtn').addEventListener('click', openBudgetModal);
+  document.getElementById('closeBudgetBtn').addEventListener('click', closeBudgetModal);
+  document.getElementById('cancelBudgetBtn').addEventListener('click', closeBudgetModal);
+  document.getElementById('budgetModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='budgetModalOverlay') closeBudgetModal(); });
+  document.getElementById('budgetForm').addEventListener('submit', handleBudgetSubmit);
+
+  // Recurring quick-add modal
+  document.getElementById('openRecurringBtn').addEventListener('click', openRecurringModal);
+  document.getElementById('closeRecurringBtn').addEventListener('click', closeRecurringModal);
+  document.getElementById('cancelRecurringBtn').addEventListener('click', closeRecurringModal);
+  document.getElementById('recurringModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='recurringModalOverlay') closeRecurringModal(); });
+  document.getElementById('addRecurringBtn').addEventListener('click', handleAddRecurringSubmit);
+
   document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); }
+    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); closeBudgetModal(); closeRecurringModal(); }
   });
 }
 
