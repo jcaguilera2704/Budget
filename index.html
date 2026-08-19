@@ -181,7 +181,7 @@
     background:linear-gradient(90deg,var(--gold),transparent 70%);
   }
   .weekday-row{
-    display:grid; grid-template-columns:repeat(7,1fr); gap:6px;
+    display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:6px;
     margin-bottom:8px;
   }
   .weekday-row div{
@@ -189,7 +189,7 @@
     text-transform:uppercase; color:var(--ink-soft); text-align:left; padding-left:4px;
   }
   .day-grid{
-    display:grid; grid-template-columns:repeat(7,1fr); grid-auto-rows:minmax(88px,auto);
+    display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); grid-auto-rows:minmax(88px,auto);
     gap:6px;
   }
   .day-cell{
@@ -197,7 +197,7 @@
     padding:7px 8px 8px; cursor:pointer; position:relative;
     display:flex; flex-direction:column; justify-content:space-between;
     transition:border-color .15s, box-shadow .15s, transform .1s;
-    min-height:92px;
+    min-height:92px; min-width:0;
   }
   .day-cell:hover{border-color:var(--gold); box-shadow:0 4px 14px -8px rgba(0,0,0,0.35); transform:translateY(-1px);}
   .day-cell:focus-visible{outline:2px solid var(--gold); outline-offset:1px;}
@@ -207,7 +207,7 @@
   .day-cell.is-today{border:1.5px solid var(--gold); box-shadow:0 0 0 3px rgba(212,162,76,0.15);}
   .day-cell.is-selected{border-color:var(--ink); box-shadow:0 0 0 3px rgba(32,36,47,0.12);}
 
-  .day-num-row{display:flex; align-items:baseline; justify-content:space-between; gap:4px;}
+  .day-num-row{display:flex; align-items:baseline; justify-content:space-between; gap:4px; min-width:0;}
   .day-num{
     font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:var(--ink);
   }
@@ -215,6 +215,7 @@
   .day-income-mark{
     font-family:'IBM Plex Mono',monospace; font-size:8.5px; font-weight:600;
     color:var(--positive); letter-spacing:-0.02em; white-space:nowrap; overflow:hidden;
+    text-overflow:ellipsis; min-width:0;
   }
 
   .day-ticks{display:flex; flex-wrap:wrap; gap:3px; margin:5px 0 auto;}
@@ -223,6 +224,7 @@
   .day-total{
     font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:500;
     color:var(--ink-soft); align-self:flex-end; letter-spacing:-0.02em;
+    max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
   .day-cell.has-spend .day-total{color:var(--ink);}
 
@@ -348,6 +350,32 @@
 
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
   @media (max-width:460px){ .field-row{grid-template-columns:1fr;} }
+
+  /* ---------- Compare periods ---------- */
+  .compare-pickers{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;}
+  .compare-side-label{font-size:11px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;}
+  .compare-side select{
+    width:100%; border:1px solid var(--paper-line); background:#fff; border-radius:8px;
+    padding:9px 10px; font-family:'Inter'; font-size:13px; color:var(--ink); margin-bottom:7px;
+  }
+  .compare-table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  .compare-table th{
+    text-align:right; font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--ink-soft); font-weight:600; padding:6px 8px; border-bottom:1px solid var(--paper-line);
+  }
+  .compare-table th:first-child{text-align:left;}
+  .compare-table td{padding:8px; border-bottom:1px solid var(--paper-line-soft); text-align:right; color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  .compare-table td:first-child{text-align:left; font-family:'Inter'; font-size:12.5px;}
+  .compare-table td.delta.up{color:var(--negative);}
+  .compare-table td.delta.down{color:var(--positive);}
+  .compare-table tr.total-row td{font-weight:600; border-top:1.5px solid var(--ink); border-bottom:none;}
+
+  /* ---------- Search ---------- */
+  #searchInput{
+    width:100%; border:1px solid var(--paper-line); background:#fff; border-radius:8px;
+    padding:10px 11px; font-family:'Inter'; font-size:16px; color:var(--ink);
+  }
+  #searchInput:focus{outline:2px solid var(--gold); outline-offset:0; border-color:var(--gold);}
 
   /* Day detail panel */
   .day-detail-date{
@@ -580,7 +608,9 @@
       <div class="panel" id="summaryPanel">
         <h2>Month summary <span class="eyebrow" id="summaryCount"></span></h2>
         <button class="edit-profile-link" id="openRecurringBtn" style="text-align:left; margin-bottom:6px;">🔁 Add this month's recurring bills</button>
-        <button class="edit-profile-link" id="openAllPurchasesBtn" style="text-align:left; margin-bottom:14px;">🧾 See all purchases</button>
+        <button class="edit-profile-link" id="openAllPurchasesBtn" style="text-align:left; margin-bottom:6px;">🧾 See all purchases</button>
+        <button class="edit-profile-link" id="openSearchBtn" style="text-align:left; margin-bottom:6px;">🔍 Search transactions</button>
+        <button class="edit-profile-link" id="openCompareBtn" style="text-align:left; margin-bottom:14px;">📊 Compare periods</button>
 
         <div class="stat-grid">
           <div class="stat-box income">
@@ -616,6 +646,15 @@
           <p class="empty-note">Set a monthly budget per category to track spending against it.</p>
         </div>
         <button class="edit-profile-link" id="openBudgetsBtn" style="margin-top:12px;">Set category budgets</button>
+      </div>
+
+      <div class="panel" id="reservePanel">
+        <h2>Big payment reserve</h2>
+        <div id="reserveProgressBody">
+          <p class="empty-note">Set a savings target for big irregular payments (tuition, insurance, taxes) and track what you've set aside toward it.</p>
+        </div>
+        <button class="advice-btn" id="addContributionBtn" style="margin-top:12px;">+ Add contribution</button>
+        <button class="edit-profile-link" id="editReserveGoalBtn" style="margin-top:10px;">Edit reserve goal</button>
       </div>
 
       <div class="panel" id="dayPanel">
@@ -814,6 +853,91 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="searchModalOverlay">
+  <div class="modal modal-lg">
+    <button class="close-x" id="closeSearchBtn" aria-label="Close">✕</button>
+    <h3>Search transactions</h3>
+    <div class="modal-sub">Search by name across everything you've logged</div>
+    <div class="field" style="margin-bottom:10px;">
+      <input type="text" id="searchInput" placeholder="Type to search... (e.g. Opla, Netflix, CHEC)" autocomplete="off">
+    </div>
+    <div id="searchResultsBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="compareModalOverlay">
+  <div class="modal modal-lg">
+    <button class="close-x" id="closeCompareBtn" aria-label="Close">✕</button>
+    <h3>Compare periods</h3>
+    <div class="modal-sub">Pick two periods to compare side by side</div>
+    <div class="compare-pickers">
+      <div class="compare-side">
+        <div class="compare-side-label">Period A</div>
+        <select id="compareAYear"></select>
+        <select id="compareAMonth"></select>
+      </div>
+      <div class="compare-side">
+        <div class="compare-side-label">Period B</div>
+        <select id="compareBYear"></select>
+        <select id="compareBMonth"></select>
+      </div>
+    </div>
+    <div id="compareResultsBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="reserveGoalModalOverlay">
+  <div class="modal">
+    <button class="close-x" id="closeReserveGoalBtn" aria-label="Close">✕</button>
+    <h3>Reserve goal</h3>
+    <div class="modal-sub">What are you saving toward, and how much?</div>
+    <form id="reserveGoalForm">
+      <div class="field">
+        <label for="reserveNote">What's this for</label>
+        <input type="text" id="reserveNote" placeholder="e.g. Tuition, insurance, car tax" maxlength="60">
+      </div>
+      <div class="field">
+        <label for="reserveTarget">Target amount (COP)</label>
+        <input type="text" inputmode="numeric" id="reserveTarget" placeholder="$0">
+      </div>
+      <div class="field">
+        <label for="reserveTargetDate">Target date (optional)</label>
+        <input type="date" id="reserveTargetDate">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="cancelReserveGoalBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save goal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="contributionModalOverlay">
+  <div class="modal">
+    <button class="close-x" id="closeContributionBtn" aria-label="Close">✕</button>
+    <h3>Add contribution</h3>
+    <div class="modal-sub">Log money you're setting aside toward your reserve</div>
+    <form id="contributionForm">
+      <div class="field">
+        <label for="contribDate">Date</label>
+        <input type="date" id="contribDate" required>
+      </div>
+      <div class="field">
+        <label for="contribAmount">Amount (COP)</label>
+        <input type="text" inputmode="numeric" id="contribAmount" placeholder="$0" required>
+      </div>
+      <div class="field">
+        <label for="contribNote">Note (optional)</label>
+        <input type="text" id="contribNote" placeholder="e.g. From May savings" maxlength="60">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="cancelContributionBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
@@ -879,6 +1003,7 @@ let isSubmitting = false;
 let modalType = 'expense'; // 'expense' | 'income'
 let chosenCategory = 'food';
 let categoryManuallyChosen = false;
+let paymentManuallyChosen = false;
 let chosenPayment = 'cash';
 
 const todayObj = new Date();
@@ -992,10 +1117,18 @@ function attachRealtimeSync(){
       categoryBudgets = data.categoryBudgets;
       changed = true;
     }
+    let reserveChanged = false;
+    if(data.reserveGoal && typeof data.reserveGoal === 'object'){
+      reserveGoal = Object.assign({ target:0, note:'', targetDate:'', contributions:[] }, data.reserveGoal);
+      reserveChanged = true;
+    }
     if(changed){
       renderCalendar();
       renderSummary();
       renderDayDetail();
+    }
+    if(reserveChanged){
+      renderReserveProgress();
     }
   }, (err)=>{
     console.error('Realtime sync error', err);
@@ -1018,6 +1151,7 @@ const PROFILE_LABELS = {
 
 let profile = {};
 let categoryBudgets = {};
+let reserveGoal = { target:0, note:'', targetDate:'', contributions:[] };
 
 async function loadProfile(){
   try{
@@ -1070,6 +1204,28 @@ async function saveBudgets(){
   }
 }
 
+async function loadReserveGoal(){
+  try{
+    const snap = await userDocRef().get();
+    const data = snap.exists ? snap.data() : {};
+    if(data.reserveGoal && typeof data.reserveGoal === 'object'){
+      reserveGoal = Object.assign({ target:0, note:'', targetDate:'', contributions:[] }, data.reserveGoal);
+    }
+  }catch(e){
+    console.error('Could not load reserve goal', e);
+  }
+}
+
+async function saveReserveGoal(){
+  try{
+    await userDocRef().set({ reserveGoal }, { merge: true });
+    setSyncStatus(true);
+  }catch(e){
+    console.error('Could not save reserve goal', e);
+    setSyncStatus(false);
+  }
+}
+
 /* ========================= Backup: export / import ========================= */
 function downloadBackup(){
   const payload = {
@@ -1077,7 +1233,8 @@ function downloadBackup(){
     exportedAt: new Date().toISOString(),
     transactions,
     profile,
-    categoryBudgets
+    categoryBudgets,
+    reserveGoal
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
   const url = URL.createObjectURL(blob);
@@ -1114,9 +1271,13 @@ async function handleRestoreFile(e){
     if(parsed.categoryBudgets && typeof parsed.categoryBudgets === 'object'){
       categoryBudgets = parsed.categoryBudgets; // older backups won't have this - leave current budgets untouched in that case
     }
+    if(parsed.reserveGoal && typeof parsed.reserveGoal === 'object'){
+      reserveGoal = Object.assign({ target:0, note:'', targetDate:'', contributions:[] }, parsed.reserveGoal);
+    }
     await saveData();
     await saveProfile();
     await saveBudgets();
+    await saveReserveGoal();
     renderCalendar();
     renderSummary();
     renderDayDetail();
@@ -1259,6 +1420,20 @@ function computeInsights(){
       const [label, amt] = pmSorted[0];
       insights.push({ icon:'💳', tone:'', title:`Mostly paid with ${label}`,
         detail:`${fmtMoney(amt)} of your tracked spending went through ${label}.` });
+    }
+
+    // --- possible duplicate charges: same date + same description + same amount ---
+    const seen = {};
+    expenses.forEach(t=>{
+      const key = t.date + '|' + normalizeForMatch(t.description) + '|' + t.amount;
+      (seen[key] = seen[key] || []).push(t);
+    });
+    const dupGroups = Object.values(seen).filter(g => g.length > 1);
+    if(dupGroups.length){
+      const worst = dupGroups.sort((a,b)=>b.length-a.length)[0];
+      const extra = dupGroups.length - 1;
+      insights.push({ icon:'\ud83d\udd0d', tone:'warn', title:`Possible duplicate: "${worst[0].description}"`,
+        detail:`Logged ${worst.length} times on ${worst[0].date} for ${fmtMoney(worst[0].amount)} each.${extra>0 ? ` ${extra} more possible duplicate${extra===1?'':'s'} found too.`:''} Worth checking if one should be deleted.` });
     }
   }
 
@@ -1509,6 +1684,251 @@ function openCategoryModal(categoryId){
 }
 function closeCategoryModal(){
   document.getElementById('categoryModalOverlay').classList.add('hidden');
+}
+
+/* ========================= Search transactions ========================= */
+function renderSearchResults(query){
+  const body = document.getElementById('searchResultsBody');
+  const q = normalizeForMatch(query);
+  if(q.length < 2){
+    body.innerHTML = '<p class="empty-note">Keep typing (at least 2 characters) to search.</p>';
+    return;
+  }
+  const results = transactions
+    .filter(t => normalizeForMatch(t.description).includes(q))
+    .sort((a,b) => b.date.localeCompare(a.date));
+
+  if(results.length === 0){
+    body.innerHTML = '<p class="empty-note">No matches for that search.</p>';
+    return;
+  }
+  const capped = results.slice(0, 100);
+  const noteExtra = results.length > 100 ? `<p class="empty-note" style="margin-top:8px;">Showing the first 100 of ${results.length} matches \u2014 try a more specific search.</p>` : '';
+
+  body.innerHTML = `<div class="tx-list" style="max-height:50vh;">${capped.map(t => {
+    const dotColor = t.type==='income' ? incomeColor() : catColor(t.category);
+    const amtText = t.type==='income' ? '+' + fmtMoney(t.amount) : fmtMoney(t.amount);
+    return `
+      <div class="tx-item" data-id="${t.id}">
+        <span class="tx-dot" style="background:${dotColor}"></span>
+        <span class="tx-desc">
+          <span class="t">${escapeHtml(t.description)}</span>
+          <span class="c">${t.date}</span>
+        </span>
+        <span class="tx-amt${t.type==='income'?' income':''}">${amtText}</span>
+      </div>`;
+  }).join('')}</div>${noteExtra}`;
+
+  body.querySelectorAll('.tx-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const id = item.getAttribute('data-id');
+      closeSearchModal();
+      openModal(null, id);
+    });
+  });
+}
+
+function openSearchModal(){
+  document.getElementById('searchInput').value = '';
+  renderSearchResults('');
+  document.getElementById('searchModalOverlay').classList.remove('hidden');
+  setTimeout(()=> document.getElementById('searchInput').focus(), 50);
+}
+function closeSearchModal(){
+  document.getElementById('searchModalOverlay').classList.add('hidden');
+}
+
+/* ========================= Compare periods ========================= */
+const COMPARE_MONTH_NAMES = ['All year','January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function getYearsInData(){
+  const years = new Set();
+  transactions.forEach(t => years.add(t.date.slice(0,4)));
+  const list = Array.from(years).sort();
+  return list.length ? list : [String(todayObj.getFullYear())];
+}
+
+function getPeriodTotals(year, month){
+  const prefix = month ? `${year}-${month}` : `${year}-`;
+  const txs = transactions.filter(t => t.date.startsWith(prefix));
+  const income = sumByType(txs, 'income');
+  const expense = sumByType(txs, 'expense');
+  const byCat = {};
+  CATEGORIES.forEach(c => byCat[c.id] = 0);
+  txs.filter(t=>t.type==='expense').forEach(t => byCat[t.category] = (byCat[t.category]||0) + t.amount);
+  return { income, expense, byCat, count: txs.length };
+}
+
+function populateCompareSelectors(){
+  const years = getYearsInData();
+  ['A','B'].forEach(side => {
+    const yearSel = document.getElementById('compare'+side+'Year');
+    const monthSel = document.getElementById('compare'+side+'Month');
+    yearSel.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join('');
+    monthSel.innerHTML = COMPARE_MONTH_NAMES.map((name,i) => `<option value="${i===0?'':String(i).padStart(2,'0')}">${name}</option>`).join('');
+  });
+
+  const curY = String(viewYear);
+  const curM = String(viewMonth+1).padStart(2,'0');
+  let prevM = viewMonth - 1, prevY = viewYear;
+  if(prevM < 0){ prevM = 11; prevY -= 1; }
+  const prevMStr = String(prevM+1).padStart(2,'0');
+
+  if(years.includes(curY)) document.getElementById('compareAYear').value = curY;
+  document.getElementById('compareAMonth').value = curM;
+  if(years.includes(String(prevY))) document.getElementById('compareBYear').value = String(prevY);
+  document.getElementById('compareBMonth').value = prevMStr;
+}
+
+function compareDeltaCell(aVal, bVal, invert){
+  const diff = bVal - aVal;
+  if(Math.abs(diff) < 1) return `<td class="delta">\u2014</td>`;
+  const isUp = diff > 0;
+  const cls = invert ? (isUp?'down':'up') : (isUp?'up':'down');
+  return `<td class="delta ${cls}">${isUp?'+':''}${fmtMoney(diff)}</td>`;
+}
+
+function renderCompareResults(){
+  const ay = document.getElementById('compareAYear').value;
+  const am = document.getElementById('compareAMonth').value;
+  const by = document.getElementById('compareBYear').value;
+  const bm = document.getElementById('compareBMonth').value;
+
+  const a = getPeriodTotals(ay, am);
+  const b = getPeriodTotals(by, bm);
+  const aLabel = `${am ? COMPARE_MONTH_NAMES[parseInt(am,10)] : 'All'} ${ay}`;
+  const bLabel = `${bm ? COMPARE_MONTH_NAMES[parseInt(bm,10)] : 'All'} ${by}`;
+
+  const body = document.getElementById('compareResultsBody');
+  if(a.count===0 && b.count===0){
+    body.innerHTML = '<p class="empty-note">No data logged in either period yet.</p>';
+    return;
+  }
+
+  let rows = '';
+  rows += `<tr class="total-row"><td>Income</td><td>${fmtMoney(a.income)}</td><td>${fmtMoney(b.income)}</td>${compareDeltaCell(a.income,b.income,true)}</tr>`;
+  rows += `<tr class="total-row"><td>Expenses</td><td>${fmtMoney(a.expense)}</td><td>${fmtMoney(b.expense)}</td>${compareDeltaCell(a.expense,b.expense,false)}</tr>`;
+  const aSav = a.income-a.expense, bSav = b.income-b.expense;
+  rows += `<tr class="total-row"><td>Savings</td><td>${fmtMoney(aSav)}</td><td>${fmtMoney(bSav)}</td>${compareDeltaCell(aSav,bSav,true)}</tr>`;
+
+  CATEGORIES
+    .filter(c => a.byCat[c.id]>0 || b.byCat[c.id]>0)
+    .sort((c1,c2) => (b.byCat[c2.id]+a.byCat[c2.id]) - (b.byCat[c1.id]+a.byCat[c1.id]))
+    .forEach(c => {
+      rows += `<tr><td>${c.icon} ${c.label}</td><td>${fmtMoney(a.byCat[c.id])}</td><td>${fmtMoney(b.byCat[c.id])}</td>${compareDeltaCell(a.byCat[c.id], b.byCat[c.id], false)}</tr>`;
+    });
+
+  body.innerHTML = `<div style="overflow-x:auto;"><table class="compare-table">
+    <thead><tr><th></th><th>${aLabel}</th><th>${bLabel}</th><th>Change</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>`;
+}
+
+function openCompareModal(){
+  populateCompareSelectors();
+  renderCompareResults();
+  document.getElementById('compareModalOverlay').classList.remove('hidden');
+}
+function closeCompareModal(){
+  document.getElementById('compareModalOverlay').classList.add('hidden');
+}
+
+/* ========================= Big payment reserve ========================= */
+function renderReserveProgress(){
+  const body = document.getElementById('reserveProgressBody');
+  if(!reserveGoal.target || reserveGoal.target <= 0){
+    body.innerHTML = '<p class="empty-note">Set a savings target for big irregular payments (tuition, insurance, taxes) and track what you\'ve set aside toward it.</p>';
+    return;
+  }
+  const contributions = reserveGoal.contributions || [];
+  const contributed = contributions.reduce((s,c)=>s+c.amount, 0);
+  const pct = Math.min(100, Math.round(contributed / reserveGoal.target * 100));
+
+  let html = `
+    <div class="budget-row" style="cursor:default;">
+      <div class="top-line">
+        <span class="cat-label">\ud83c\udfaf ${escapeHtml(reserveGoal.note || 'Reserve')}</span>
+        <span class="amounts">${fmtMoney(contributed)} / ${fmtMoney(reserveGoal.target)} (${pct}%)</span>
+      </div>
+      <div class="budget-bar-track">
+        <div class="budget-bar-fill ok" style="width:${pct}%"></div>
+      </div>
+    </div>`;
+  if(reserveGoal.targetDate){
+    html += `<p class="empty-note" style="margin-top:8px;">Target date: ${reserveGoal.targetDate}</p>`;
+  }
+
+  if(contributions.length){
+    const sorted = contributions.slice().sort((a,b)=> b.date.localeCompare(a.date));
+    html += `<div class="tx-list" style="max-height:160px; margin-top:12px;">${sorted.map(c => `
+      <div class="tx-item">
+        <span class="tx-dot" style="background:var(--positive)"></span>
+        <span class="tx-desc">
+          <span class="t">${escapeHtml(c.note || 'Contribution')}</span>
+          <span class="c">${c.date}</span>
+        </span>
+        <span class="tx-amt income">+${fmtMoney(c.amount)}</span>
+        <button class="tx-del" data-id="${c.id}" aria-label="Remove contribution">\u2715</button>
+      </div>`).join('')}</div>`;
+  }
+  body.innerHTML = html;
+
+  body.querySelectorAll('.tx-del').forEach(btn=>{
+    btn.addEventListener('click', async (e)=>{
+      e.stopPropagation();
+      const id = e.currentTarget.getAttribute('data-id');
+      reserveGoal.contributions = (reserveGoal.contributions || []).filter(c => c.id !== id);
+      await saveReserveGoal();
+      renderReserveProgress();
+    });
+  });
+}
+
+function openReserveGoalModal(){
+  document.getElementById('reserveNote').value = reserveGoal.note || '';
+  setAmountValue(document.getElementById('reserveTarget'), reserveGoal.target || '');
+  document.getElementById('reserveTargetDate').value = reserveGoal.targetDate || '';
+  document.getElementById('reserveGoalModalOverlay').classList.remove('hidden');
+}
+function closeReserveGoalModal(){
+  document.getElementById('reserveGoalModalOverlay').classList.add('hidden');
+}
+async function handleReserveGoalSubmit(e){
+  e.preventDefault();
+  const digits = digitsFromInput(document.getElementById('reserveTarget').value);
+  reserveGoal.target = digits ? parseInt(digits, 10) : 0;
+  reserveGoal.note = document.getElementById('reserveNote').value.trim();
+  reserveGoal.targetDate = document.getElementById('reserveTargetDate').value || '';
+  if(!reserveGoal.contributions) reserveGoal.contributions = [];
+  await saveReserveGoal();
+  closeReserveGoalModal();
+  renderReserveProgress();
+}
+
+function openContributionModal(){
+  document.getElementById('contribDate').value = todayStr;
+  document.getElementById('contribAmount').value = '';
+  document.getElementById('contribNote').value = '';
+  document.getElementById('contributionModalOverlay').classList.remove('hidden');
+}
+function closeContributionModal(){
+  document.getElementById('contributionModalOverlay').classList.add('hidden');
+}
+async function handleContributionSubmit(e){
+  e.preventDefault();
+  const digits = digitsFromInput(document.getElementById('contribAmount').value);
+  const amount = digits ? parseInt(digits, 10) : NaN;
+  const date = document.getElementById('contribDate').value;
+  if(!date || isNaN(amount) || amount<=0) return;
+  if(!reserveGoal.contributions) reserveGoal.contributions = [];
+  reserveGoal.contributions.push({
+    id: 'res-' + Date.now() + '-' + Math.floor(Math.random()*1000),
+    date, amount,
+    note: document.getElementById('contribNote').value.trim()
+  });
+  await saveReserveGoal();
+  closeContributionModal();
+  renderReserveProgress();
 }
 
 /* ========================= Helpers ========================= */
@@ -1838,13 +2258,52 @@ function suggestCategoryFor(description){
   return best;
 }
 
+function suggestPaymentFor(description){
+  const target = normalizeForMatch(description);
+  if(target.length < 3) return null;
+  const counts = {};
+  let bestExact = null;
+  for(const t of transactions){
+    if(t.type !== 'expense' || !t.payment || !t.payment.method) continue;
+    const n = normalizeForMatch(t.description);
+    if(!n) continue;
+    const key = t.payment.method + '|' + (t.payment.bank || '');
+    if(n === target){
+      bestExact = t.payment;
+    }
+    if(n === target || n.includes(target) || target.includes(n)){
+      counts[key] = (counts[key] || 0) + 1;
+    }
+  }
+  if(bestExact) return bestExact;
+  let best = null, bestCount = 0;
+  for(const key in counts){
+    if(counts[key] > bestCount){ best = key; bestCount = counts[key]; }
+  }
+  if(!best) return null;
+  const [method, bank] = best.split('|');
+  return { method, bank: bank || null };
+}
+
 function maybeSuggestCategory(){
-  if(editingTxId || categoryManuallyChosen || modalType !== 'expense') return;
+  if(editingTxId || modalType !== 'expense') return;
   const desc = document.getElementById('txDesc').value;
-  const suggestion = suggestCategoryFor(desc);
-  if(suggestion && suggestion !== chosenCategory){
-    chosenCategory = suggestion;
-    buildCatPicker();
+
+  if(!categoryManuallyChosen){
+    const suggestion = suggestCategoryFor(desc);
+    if(suggestion && suggestion !== chosenCategory){
+      chosenCategory = suggestion;
+      buildCatPicker();
+    }
+  }
+
+  if(!paymentManuallyChosen){
+    const pmSuggestion = suggestPaymentFor(desc);
+    if(pmSuggestion && (pmSuggestion.method !== chosenPayment || (pmSuggestion.bank||'') !== (document.getElementById('txBank').value||''))){
+      chosenPayment = pmSuggestion.method;
+      buildPaymentPicker();
+      if(pmSuggestion.bank) document.getElementById('txBank').value = pmSuggestion.bank;
+    }
   }
 }
 
@@ -1870,8 +2329,8 @@ function buildPaymentPicker(){
     btn.className = 'pm-choice' + (p.id===chosenPayment ? ' selected':'');
     btn.tabIndex = 0;
     btn.innerHTML = `<span class="ic">${p.icon}</span>${p.label}`;
-    btn.addEventListener('click', ()=>{ chosenPayment = p.id; buildPaymentPicker(); updateBankFieldVisibility(); });
-    btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); chosenPayment=p.id; buildPaymentPicker(); updateBankFieldVisibility(); }});
+    btn.addEventListener('click', ()=>{ chosenPayment = p.id; paymentManuallyChosen = true; buildPaymentPicker(); updateBankFieldVisibility(); });
+    btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); chosenPayment=p.id; paymentManuallyChosen = true; buildPaymentPicker(); updateBankFieldVisibility(); }});
     picker.appendChild(btn);
   });
   updateBankFieldVisibility();
@@ -1918,10 +2377,11 @@ function openModal(dateStr, txId, presetType){
     chosenCategory = 'food';
     chosenPayment = 'cash';
     categoryManuallyChosen = false;
+    paymentManuallyChosen = false;
     document.getElementById('txBank').value = '';
     setModalType(presetType || 'expense');
   }
-  if(editingTxId) categoryManuallyChosen = true; // don't override an already-set category while editing
+  if(editingTxId){ categoryManuallyChosen = true; paymentManuallyChosen = true; } // don't override already-set values while editing
  
   buildCatPicker();
   buildPaymentPicker();
@@ -2001,6 +2461,7 @@ async function onAuthenticated(){
   await loadData();
   await loadProfile();
   await loadBudgets();
+  await loadReserveGoal();
   viewYear = todayObj.getFullYear();
   viewMonth = todayObj.getMonth();
   selectedDate = todayStr;
@@ -2008,6 +2469,7 @@ async function onAuthenticated(){
   renderCalendar();
   renderSummary();
   renderDayDetail();
+  renderReserveProgress();
   attachRealtimeSync();
 }
 
@@ -2076,8 +2538,8 @@ async function init(){
   document.getElementById('txForm').addEventListener('submit', handleFormSubmit);
   document.getElementById('txAmount').addEventListener('input', (e)=> formatAmountInput(e.target));
   document.getElementById('txDesc').addEventListener('input', maybeSuggestCategory);
-  document.getElementById('tabExpense').addEventListener('click', ()=>{ chosenPayment='cash'; setModalType('expense'); buildPaymentPicker(); });
-  document.getElementById('tabIncome').addEventListener('click', ()=>{ chosenPayment='cash'; setModalType('income'); buildPaymentPicker(); });
+  document.getElementById('tabExpense').addEventListener('click', ()=>{ chosenPayment='cash'; paymentManuallyChosen=false; setModalType('expense'); buildPaymentPicker(); });
+  document.getElementById('tabIncome').addEventListener('click', ()=>{ chosenPayment='cash'; paymentManuallyChosen=false; setModalType('income'); buildPaymentPicker(); });
   document.getElementById('clearAllBtn').addEventListener('click', async ()=>{
     if(confirm('This will permanently delete all purchases and income from this app. Continue?')){
       transactions = [];
@@ -2111,6 +2573,21 @@ async function init(){
   document.getElementById('budgetModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='budgetModalOverlay') closeBudgetModal(); });
   document.getElementById('budgetForm').addEventListener('submit', handleBudgetSubmit);
 
+  // Big payment reserve
+  document.getElementById('editReserveGoalBtn').addEventListener('click', openReserveGoalModal);
+  document.getElementById('closeReserveGoalBtn').addEventListener('click', closeReserveGoalModal);
+  document.getElementById('cancelReserveGoalBtn').addEventListener('click', closeReserveGoalModal);
+  document.getElementById('reserveGoalModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='reserveGoalModalOverlay') closeReserveGoalModal(); });
+  document.getElementById('reserveGoalForm').addEventListener('submit', handleReserveGoalSubmit);
+  document.getElementById('reserveTarget').addEventListener('input', (e)=> formatAmountInput(e.target));
+
+  document.getElementById('addContributionBtn').addEventListener('click', openContributionModal);
+  document.getElementById('closeContributionBtn').addEventListener('click', closeContributionModal);
+  document.getElementById('cancelContributionBtn').addEventListener('click', closeContributionModal);
+  document.getElementById('contributionModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='contributionModalOverlay') closeContributionModal(); });
+  document.getElementById('contributionForm').addEventListener('submit', handleContributionSubmit);
+  document.getElementById('contribAmount').addEventListener('input', (e)=> formatAmountInput(e.target));
+
   // Recurring quick-add modal
   document.getElementById('openRecurringBtn').addEventListener('click', openRecurringModal);
   document.getElementById('closeRecurringBtn').addEventListener('click', closeRecurringModal);
@@ -2121,10 +2598,24 @@ async function init(){
   // Category detail modal
   document.getElementById('closeCategoryBtn').addEventListener('click', closeCategoryModal);
   document.getElementById('openAllPurchasesBtn').addEventListener('click', ()=> openCategoryModal(null));
+
+  // Search transactions
+  document.getElementById('openSearchBtn').addEventListener('click', openSearchModal);
+  document.getElementById('closeSearchBtn').addEventListener('click', closeSearchModal);
+  document.getElementById('searchModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='searchModalOverlay') closeSearchModal(); });
+  document.getElementById('searchInput').addEventListener('input', (e)=> renderSearchResults(e.target.value));
+
+  // Compare periods
+  document.getElementById('openCompareBtn').addEventListener('click', openCompareModal);
+  document.getElementById('closeCompareBtn').addEventListener('click', closeCompareModal);
+  document.getElementById('compareModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='compareModalOverlay') closeCompareModal(); });
+  ['compareAYear','compareAMonth','compareBYear','compareBMonth'].forEach(id=>{
+    document.getElementById(id).addEventListener('change', renderCompareResults);
+  });
   document.getElementById('categoryModalOverlay').addEventListener('click', (e)=>{ if(e.target.id==='categoryModalOverlay') closeCategoryModal(); });
 
   document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); closeBudgetModal(); closeRecurringModal(); closeCategoryModal(); }
+    if(e.key==='Escape'){ closeModal(); closeProfileModal(); closeAdviceModal(); closeBudgetModal(); closeRecurringModal(); closeCategoryModal(); closeSearchModal(); closeCompareModal(); closeReserveGoalModal(); closeContributionModal(); }
   });
 }
 
